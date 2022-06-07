@@ -4,3 +4,6 @@ merged-data-set
 population
 lisa
 housing
+research-questions
+description-of-data-sets
+descriptives-by-age-and-sex
