@@ -1,0 +1,19 @@
+# Description of data sets
+
+## Merged data set
+
+The data used in this analysis is the result of linking three different datasets.  First, the population data set is matched on the much larger Lisa dataset in order to return the unique Lopnr's from the Population data set that are found in the Lisa data set.  Next, the matched Population/Lisa data is filtered based on the following criteria in order to minimized duplicates and repeat entries:
+
+After this filtering, the combined Population/Lisa data set is checked for duplicates in LopNr and year (690 duplicates removed, first case preserved), and then joined with the housing dataset on the unique combination of LopNr and year.
+
+## Population
+
+Description of Population data set
+
+## Lisa
+
+Description of Lisa data set
+
+## Housing
+
+Description of Housing data set
