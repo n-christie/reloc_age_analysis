@@ -6,6 +6,19 @@ link-citations: yes
 description: "Description and intial analysis for the Reloc-Age project"
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE,
+	results = "asis"
+)
+```
+
+```{r, include=FALSE}
+library(here)
+```
+
 # About {#about}
 
 RELOC-AGE: How Do Housing Choices and Relocation Matter for Active and Healthy Ageing?

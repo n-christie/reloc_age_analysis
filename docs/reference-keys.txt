@@ -2,7 +2,9 @@ about
 research-questions
 intro
 description-of-data-sets
-merged-data-set
+data-cleaning-and-joining-of-data
+scb-data
+joining-data
 population
 lisa
 housing

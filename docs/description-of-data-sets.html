@@ -75,7 +75,11 @@
 <li class="chapter" data-level="3" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>3</b> Introduction</a></li>
 <li class="chapter" data-level="4" data-path="description-of-data-sets.html"><a href="description-of-data-sets.html"><i class="fa fa-check"></i><b>4</b> Description of data sets</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="description-of-data-sets.html"><a href="description-of-data-sets.html#merged-data-set"><i class="fa fa-check"></i><b>4.1</b> Merged data set</a></li>
+<li class="chapter" data-level="4.1" data-path="description-of-data-sets.html"><a href="description-of-data-sets.html#data-cleaning-and-joining-of-data"><i class="fa fa-check"></i><b>4.1</b> Data cleaning and joining of data</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="description-of-data-sets.html"><a href="description-of-data-sets.html#scb-data"><i class="fa fa-check"></i><b>4.1.1</b> SCB data</a></li>
+<li class="chapter" data-level="4.1.2" data-path="description-of-data-sets.html"><a href="description-of-data-sets.html#joining-data"><i class="fa fa-check"></i><b>4.1.2</b> Joining data</a></li>
+</ul></li>
 <li class="chapter" data-level="4.2" data-path="description-of-data-sets.html"><a href="description-of-data-sets.html#population"><i class="fa fa-check"></i><b>4.2</b> Population</a></li>
 <li class="chapter" data-level="4.3" data-path="description-of-data-sets.html"><a href="description-of-data-sets.html#lisa"><i class="fa fa-check"></i><b>4.3</b> Lisa</a></li>
 <li class="chapter" data-level="4.4" data-path="description-of-data-sets.html"><a href="description-of-data-sets.html#housing"><i class="fa fa-check"></i><b>4.4</b> Housing</a></li>
@@ -100,10 +104,30 @@
             <section class="normal" id="section-">
 <div id="description-of-data-sets" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">4</span> Description of data sets<a href="description-of-data-sets.html#description-of-data-sets" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="merged-data-set" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Merged data set<a href="description-of-data-sets.html#merged-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The data used in this analysis is the result of linking three different datasets. First, the population data set is matched on the much larger Lisa dataset in order to return the unique Lopnr’s from the Population data set that are found in the Lisa data set. Next, the matched Population/Lisa data is filtered based on the following criteria in order to minimized duplicates and repeat entries:</p>
+<p><img src="output/figures/registers_timeline.png" width="640" /></p>
+<div id="data-cleaning-and-joining-of-data" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Data cleaning and joining of data<a href="description-of-data-sets.html#data-cleaning-and-joining-of-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As illustrated above, the Reloc-Age data set is comprised of data from several registers and sources. In order to arrive at the final data set, a number of data cleaning actions, multiple joins, and many quality control steps have been taken to insure reliable analysis and data integrity. This section details steps taken.</p>
+<div id="scb-data" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> SCB data<a href="description-of-data-sets.html#scb-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A significant amount of data from the registrars originates from Statistics Sweden (SCB). This data is delivered in text format (file extension .txt), and is partitioned, for the most part, into individual files separated by both year and data set.</p>
+<p>With data covering about 3 million individuals over a period of decades and consisting of multitude of variables contained in hundreds of very large files, the computational effort to complete these joins are very time intensive, often taking hours for each merge, with progress occasionally hindered by computational restrictions and small errors which arise in the data cleaning process. With this in mind, detailed documentation, contained both here and alongside code used in the data cleaning, is prioritized to reduce any need to repeat these time-intensive processes.</p>
+<ul>
+<li>Raw data files are organized into folder structure where each folder contains all data from a particular data set.</li>
+<li>An individual script for each data set is written in R that reads the raw yearly .txt files and merges files into one data set.</li>
+<li>When required, a variable “year” is generated in the joined data set specifying which year the data originates from( taken from the name of the .txt file).</li>
+<li>Variables are renamed into lowercase with spaces and other delimiters transformed into underscores ( _ ) for consistent naming conventions and avoidance of future merge conflicts.</li>
+<li>The joined and cleaned data set is saved in the contained folder in both R’s .rds and Stata’s .dta formats.</li>
+<li>A README.txt file is created in each folder documenting the process.</li>
+</ul>
+<p>The result consists of eleven folders each containing a data set’s respective raw data, a documented R merging/cleaning script for full reproducibility, and a merged data set in both R and Stata format to be used in subsequent merging and further analysis.</p>
+</div>
+<div id="joining-data" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Joining data<a href="description-of-data-sets.html#joining-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The first step taken is to combine the</p>
+<p>The data used in this analysis is the result of linking three different data sets. First, the population data set is matched on the much larger Lisa data set in order to return the unique Lopnr’s from the Population data set that are found in the Lisa data set. Next, the matched Population/Lisa data is filtered based on the following criteria in order to minimized duplicates and repeat entries:</p>
 <p>After this filtering, the combined Population/Lisa data set is checked for duplicates in LopNr and year (690 duplicates removed, first case preserved), and then joined with the housing dataset on the unique combination of LopNr and year.</p>
+</div>
 </div>
 <div id="population" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Population<a href="description-of-data-sets.html#population" class="anchor-section" aria-label="Anchor link to header"></a></h2>

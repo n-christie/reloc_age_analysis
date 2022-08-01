@@ -1,8 +1,40 @@
 # Description of data sets
 
-## Merged data set
+```{r}
 
-The data used in this analysis is the result of linking three different datasets.  First, the population data set is matched on the much larger Lisa dataset in order to return the unique Lopnr's from the Population data set that are found in the Lisa data set.  Next, the matched Population/Lisa data is filtered based on the following criteria in order to minimized duplicates and repeat entries:
+knitr::include_graphics(here("output/figures", "registers_timeline.png"))
+```
+
+
+## Data cleaning and joining of data
+
+As illustrated above, the Reloc-Age data set is comprised of data from several registers and sources.  In order to arrive at the final data set, a number of data cleaning actions, multiple joins, and many quality control steps have been taken to insure reliable analysis and data integrity.  This section details steps taken.
+
+### SCB data
+
+A significant amount of data from the registrars originates from Statistics Sweden (SCB).  This data is delivered in text format (file extension .txt), and is partitioned, for the most part, into individual files separated by both year and data set.
+
+With data covering about 3 million individuals over a period of decades and consisting of multitude of variables contained in hundreds of very large files, the computational effort to complete these joins are very time intensive, often taking hours for each merge, with progress occasionally hindered by computational restrictions and small errors which arise in the data cleaning process.  With this in mind, detailed documentation, contained both here and alongside code used in the data cleaning, is prioritized to reduce any need to repeat these time-intensive processes. 
+
+
+* Raw data files are organized into folder structure where each folder contains all data from a particular data set.
+* An individual script for each data set is written in R that reads the raw yearly .txt files and merges files into one data set.
+* When required, a variable "year" is generated in the joined data set specifying which year the data originates from( taken from the name of the .txt file).
+* Variables are renamed into lowercase with spaces and other delimiters transformed into underscores ( _ ) for consistent naming conventions and avoidance of future merge conflicts.
+* The joined and cleaned data set is saved in the contained folder in both R's .rds and Stata's .dta formats.
+* A README.txt file is created in each folder documenting the process.
+
+The result consists of eleven folders each containing a data set's respective raw data, a documented R merging/cleaning script for full reproducibility, and a merged data set in both R and Stata format to be used in subsequent merging and further analysis.
+
+
+
+### Joining data
+
+The first step taken is to combine the 
+
+
+
+The data used in this analysis is the result of linking three different data sets.  First, the population data set is matched on the much larger Lisa data set in order to return the unique Lopnr's from the Population data set that are found in the Lisa data set.  Next, the matched Population/Lisa data is filtered based on the following criteria in order to minimized duplicates and repeat entries:
 
 After this filtering, the combined Population/Lisa data set is checked for duplicates in LopNr and year (690 duplicates removed, first case preserved), and then joined with the housing dataset on the unique combination of LopNr and year.
 
