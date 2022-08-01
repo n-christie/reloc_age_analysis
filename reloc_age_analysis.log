@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (MiKTeX 22.3) (preloaded format=xelatex 2022.6.14)  1 AUG 2022 16:01
+This is XeTeX, Version 3.141592653-2.6-0.999994 (MiKTeX 22.3) (preloaded format=xelatex 2022.6.14)  1 AUG 2022 16:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -929,28 +929,33 @@ Chapter 4.
 ]
 Chapter 5.
 [15] [16]
+Chapter 6.
+[17
+
+] [18
+
+]
+Chapter 7.
+[19]
 File: output/figures/partners_png.png Graphic file (type bmp)
 <output/figures/partners_png.png>
+
+Underfull \vbox (badness 6157) has occurred while \output is active []
+
+[20]
 File: output/figures/relocation_id.png Graphic file (type bmp)
 <output/figures/relocation_id.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[17] [18]
-Chapter 6.
-[19
-
-] (reloc_age_analysis.aux) ) 
+[21] [22] (reloc_age_analysis.aux) ) 
 Here is how much of TeX's memory you used:
- 20225 strings out of 410673
- 364527 string characters out of 2821037
- 856456 words of memory out of 3000000
- 40980 multiletter control sequences out of 15000+600000
+ 20226 strings out of 410673
+ 364558 string characters out of 2821037
+ 854516 words of memory out of 3000000
+ 40981 multiletter control sequences out of 15000+600000
  475808 words of font info for 81 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  86i,6n,121p,1017b,408s stack positions out of 10000i,1000n,20000p,200000b,80000s
 
-Output written on reloc_age_analysis.pdf (19 pages).
+Output written on reloc_age_analysis.pdf (22 pages).
 
 ! miktex-dvipdfmx: major issue: User/administrator updates are out-of-sync.
 ! xelatex: major issue: User/administrator updates are out-of-sync.

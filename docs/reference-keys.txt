@@ -1,0 +1,17 @@
+tab:unnamed-chunk-3
+about
+research-questions
+overview-of-registers
+description-of-data-sets-from-scb
+population
+lisa
+housing
+data-cleaning-and-joining-of-data
+scb-data
+descriptives-by-age-and-sex
+housing-data
+specific-data-considerations
+identifying-partners
+recoding-varaibles
+indentifying-relocations
+indentifying-change-in-kommun
