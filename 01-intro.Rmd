@@ -1,5 +1,26 @@
-# Introduction {#intro}
+# Overview of Registers
 
-Here is the introduction and outline of the document. 
+The study period in Register RELOC-AGE ranges from 1990-2020 and is comprised of 13 registers with staggered coverage which is here illustrated.  Below the figure are descriptions of each register contained in the study.
 
-Here is some test text. I am typing, I am typing, I am not a robot.
+
+```{r,out.width="100%"}
+
+knitr::include_graphics(here("output/figures", "registers_timeline.png"))
+```
+
+```{r}
+
+register_tbl <- readRDS( here("output/tables", "register_tbl.rds") )
+
+ kable(register_tbl,
+      "html",
+      caption = "Register descriptions",
+      linesep = "",
+      booktabs = TRUE,
+      align = "ll",
+      escape=FALSE) %>% 
+  kable_styling(bootstrap_options = c( "responsive"), font_size = 11) %>%
+    scroll_box(width = "800px", height = "500px")
+
+
+```

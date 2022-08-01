@@ -3,6 +3,7 @@ title: "Reloc-Age"
 site: bookdown::bookdown_site
 documentclass: book
 link-citations: yes
+always_allow_html: true
 description: "Description and intial analysis for the Reloc-Age project"
 ---
 
@@ -17,6 +18,8 @@ knitr::opts_chunk$set(
 
 ```{r, include=FALSE}
 library(here)
+library(tidyverse)
+library(kableExtra)
 ```
 
 # About {#about}

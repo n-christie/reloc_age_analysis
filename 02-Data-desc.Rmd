@@ -1,20 +1,32 @@
-# Description of data sets
+# Description of data sets from SCB
 
-```{r}
-
-knitr::include_graphics(here("output/figures", "registers_timeline.png"))
-```
+A significant amount of data from the registrars originates from Statistics Sweden (SCB).  This data is delivered in text format (file extension .txt), and is partitioned, for the most part, into individual files separated by both year and grouped data set.  While the data contained in this data originates from the specified data Registrars previously outlined, the data is received from SCB consolidated and grouped into various data sets which require further cleaning and processing.  These grouped data sets are described below. 
 
 
-## Data cleaning and joining of data
+## Population
 
-As illustrated above, the Reloc-Age data set is comprised of data from several registers and sources.  In order to arrive at the final data set, a number of data cleaning actions, multiple joins, and many quality control steps have been taken to insure reliable analysis and data integrity.  This section details steps taken.
+Description of Population data set
 
-### SCB data
+## Lisa
 
-A significant amount of data from the registrars originates from Statistics Sweden (SCB).  This data is delivered in text format (file extension .txt), and is partitioned, for the most part, into individual files separated by both year and data set.
+Description of Lisa data set
+
+## Housing
+
+Description of Housing data set
+
+
+
+
+# Data cleaning and joining of data
+
+As illustrated above, the data from RELOC-AGE is comprised of from several registers and sources.  In order to arrive at the final data set, a number of data cleaning actions, multiple joins, and many quality control steps have been taken to insure reliable analysis and data integrity.  This section details steps taken.
+
+## SCB data
 
 With data covering about 3 million individuals over a period of decades and consisting of multitude of variables contained in hundreds of very large files, the computational effort to complete these joins are very time intensive, often taking hours for each merge, with progress occasionally hindered by computational restrictions and small errors which arise in the data cleaning process.  With this in mind, detailed documentation, contained both here and alongside code used in the data cleaning, is prioritized to reduce any need to repeat these time-intensive processes. 
+
+As a first step, the following initial data cleaning is perfomred:
 
 
 * Raw data files are organized into folder structure where each folder contains all data from a particular data set.
@@ -28,24 +40,5 @@ The result consists of eleven folders each containing a data set's respective ra
 
 
 
-### Joining data
-
-The first step taken is to combine the 
 
 
-
-The data used in this analysis is the result of linking three different data sets.  First, the population data set is matched on the much larger Lisa data set in order to return the unique Lopnr's from the Population data set that are found in the Lisa data set.  Next, the matched Population/Lisa data is filtered based on the following criteria in order to minimized duplicates and repeat entries:
-
-After this filtering, the combined Population/Lisa data set is checked for duplicates in LopNr and year (690 duplicates removed, first case preserved), and then joined with the housing dataset on the unique combination of LopNr and year.
-
-## Population
-
-Description of Population data set
-
-## Lisa
-
-Description of Lisa data set
-
-## Housing
-
-Description of Housing data set

@@ -1,0 +1,68 @@
+# Housing data
+
+Study period 2012-2020 when data is made available from SCB from the Real estate and Apartment registers.  Data is taken from three SCB data sources: lev_lisa, lev_housing, and lev_population.  The following steps are taken to arrive at a complete data set:
+
+* The unique identifier __lopnr__ in the lev_population data set is filtered with the following criteria: index_p ==1 & ater_pnr == 0 & sen_pnr == 1.
+
+* Next this set of unique identifiers are matched to the full lev_lisa data set, resulting in lisa data that contains only the unique identifiers from the first step.
+
+* 690 duplicate lopnr-year observations are identified and removed from the data set.  Further inspection indicated this small number is a result of messy data, showing no trend or further information.
+
+* As data from lev_lisa ends in 2019 and data from the lev_housing data set ends in 2020, time invariant variables(year of birth, sex, education, etc.) from unique individuals in 2019 are replicated for 2020 to facilitate the appropriate matching to the unique identifiers in the 2020 Housing data. 
+
+* Lastly, the data is joined by the unique lopnr-year combination with the lev_housing data.
+
+## Specific data considerations
+
+### Identifying partners
+
+There are some discrepancies in the data when finding consistent partner matches to unique individuals across the multiple data sets. 
+
+
+We can find partner data in two of the datasets: __partners_rtb__ and __samh__. In the __partners_rtb__ dataset, we have three variables for every lopnr-year observation:
+
+*	Lopnrsamh – (no definition given in the excel sheet) 1987-1997.
+*	Lopnrsambo – “sambo’s personummer” from 1998.
+*	Lopnrmakpart – “make/maka/partners personummer” ( I believe this is technically married) from 1998.
+
+From the __samh__ dataset, we have one variable:
+*	LopNrSamh – (no definition given in the accompanying excel sheet).
+
+Since no particular partner variable was consistent over time, a new varaible is created, “partner”,  that takes the value of whichever variable has valid data (of one of the above variables) for that lopnr/year.  If there are two values, the priority is for the lopnrsamh from the __partners_rtb__ dataset (it seems to have the best coverage).  
+
+A screenshot for an particular individual with multiple partners over time to illustrate.
+
+```{r,out.width="80%"}
+
+knitr::include_graphics(here("output/figures", "partners_png.png"))
+```
+
+### Recoding varaibles
+
+Education, housing type, housing tenure
+
+
+
+### Indentifying relocations
+
+To identify when an individual has relocated in the data the following considerations are taken into account.
+
+* The housing variables, __fast_lopnr__ and __lghlopnr__ appear to uniquely identify the housing location of a particular individual.  Over time, a change in either variable should indicate that an individual as relocated (highlighted in orange below).  This change appears to be the best indicator of whether an individual has relocated or not. 
+
+
+```{r,out.width="100%"}
+
+knitr::include_graphics(here("output/figures", "relocation_id.png"))
+```
+
+* The coordinate variables, __xkoord__ and __ykoord__ appear to be occationally inconsistent, giving different values for the same  __fast_lopnr__ and __lghlopnr__ identifier in some of the data.  This may be the result of data errors or possibly a GPS margin of error when measuring housing location (Highlighted yellow).
+
+*	The variable __n_housing__ counts how many unique __fast_lopnr__’s are associated with each __lopnr__.  For example, individual 31, has resided in three locations, Individual 38 has resided in two locations, and Individual 40 has resided in one location during the sample period.
+
+*	The vairalbes __change_housing__  and __change_tenure__ take the before and after values of __housing__  and __tenure__ (respectively) and return the before and after categories when a change (relocation) has occurred.
+
+*	__Byggtyp__ appears to follow the patterns of __fast_lopnr__ and __lghlopnr__, but contains some missing data.  The missing __Byggtyp__ value seems to be associated with the values “Övriga hus” and “Specialböstader” in __housing__. 
+
+### Indentifying change in kommun
+
+In a similar fashion as identifying the change in a housing identifier over time for an individual, we can observe when an individual has relocated outside of a geographical area when the geographical indicator changes. 
