@@ -55,9 +55,9 @@ To identify when an individual has relocated in the data the following considera
 knitr::include_graphics(here("output/figures", "relocation_id.png"))
 ```
 
-* The coordinate variables, __xkoord__ and __ykoord__ appear to be occationally inconsistent, giving different values for the same  __fast_lopnr__ and __lghlopnr__ identifier in some of the data.  This may be the result of data errors or possibly a GPS margin of error when measuring housing location (Highlighted yellow).
+* The coordinate variables, __xkoord__ and __ykoord__ appear to be occasionally inconsistent, giving different values for the same  __fast_lopnr__ and __lghlopnr__ identifier in some of the data.  This may be the result of data errors or possibly a GPS margin of error when measuring housing location (Highlighted yellow).
 
-*	The variable __n_housing__ counts how many unique __fast_lopnr__’s are associated with each __lopnr__.  For example, individual 31, has resided in three locations, Individual 38 has resided in two locations, and Individual 40 has resided in one location during the sample period.
+*	The variable __n_housing__ counts how many unique __fast_lopnr__’s are associated with each __lopnr__.  For example, individual RED, has resided in three locations, Individual BLUE has resided in two locations, and Individual 40  has resided in one location during the sample period.
 
 *	The vairalbes __change_housing__  and __change_tenure__ take the before and after values of __housing__  and __tenure__ (respectively) and return the before and after categories when a change (relocation) has occurred.
 

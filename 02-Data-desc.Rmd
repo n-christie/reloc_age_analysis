@@ -18,15 +18,15 @@ Description of Housing data set
 
 
 
-# Data cleaning and joining of data
+# Data cleaning and joining of raw data
 
 As illustrated above, the data from RELOC-AGE is comprised of from several registers and sources.  In order to arrive at the final data set, a number of data cleaning actions, multiple joins, and many quality control steps have been taken to insure reliable analysis and data integrity.  This section details steps taken.
 
 ## SCB data
 
-With data covering about 3 million individuals over a period of decades and consisting of multitude of variables contained in hundreds of very large files, the computational effort to complete these joins are very time intensive, often taking hours for each merge, with progress occasionally hindered by computational restrictions and small errors which arise in the data cleaning process.  With this in mind, detailed documentation, contained both here and alongside code used in the data cleaning, is prioritized to reduce any need to repeat these time-intensive processes. 
+With data covering about 3 million individuals over decades and with a multitude of variables spread out across hundreds of very large files, the computational effort to complete these tasks are very time intensive, often taking hours for a large merge, with progress occasionally hindered by computational restrictions and small errors which arise in the data cleaning process.  With this in mind, detailed documentation, contained both here and alongside code used in the data cleaning, is prioritized to reduce any need to repeat these time-intensive processes. 
 
-As a first step, the following initial data cleaning is perfomred:
+As a first step, the following initial data cleaning is performed:
 
 
 * Raw data files are organized into folder structure where each folder contains all data from a particular data set.
@@ -38,7 +38,10 @@ As a first step, the following initial data cleaning is perfomred:
 
 The result consists of eleven folders each containing a data set's respective raw data, a documented R merging/cleaning script for full reproducibility, and a merged data set in both R and Stata format to be used in subsequent merging and further analysis.
 
+```{r,out.width="100%"}
 
+knitr::include_graphics(here("output/figures", "folder_structure.png"))
+```
 
 
 
