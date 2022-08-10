@@ -24,6 +24,13 @@ library(kableExtra)
 
 # About {#about}
 
+This document outlines the aims, motivations, and research questions of the RELOC-AGE project.
+Descriptions on data retrieval, data processing, as well as some exploratory analysis and initial findings are also reported.
+
+Using the sidebar found on the left, one may easily navigate the document to browse the contents.
+
+# Introduction 
+
 RELOC-AGE: How Do Housing Choices and Relocation Matter for Active and Healthy Ageing?
 
 To generate novel and significant knowledge on housing choices and relocation as related to active and healthy ageing,
@@ -37,12 +44,12 @@ aged 55+ considering relocation (Prospective RELOC-AGE).
 (Intervention RELOC-AGE).
 * Contribute to theory development (Theory RELOC-AGE).
 
-# Research questions
+## Research questions
 
 1. What are the trends over time and by age when it comes to housing types and tenures?
 2. How do housing aspects and relocations affect future health outcomes?
   + How are these patterns affected by age, sex, civil status, country of origin, adverse health
-events, loss of a partner, socio-economic and neighbourhood characteristics?
+events, loss of a partner, socio-economic and neighborhood characteristics?
   + Given equal propensity of relocation based on baseline demographic, socio-economic and
 health characteristics, how do specific housing decisions affect future health outcomes?
 3. What are the effects of adverse health events on housing choices and relocation patterns?

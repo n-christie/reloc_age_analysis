@@ -33,6 +33,13 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Reloc-Age},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -80,13 +87,6 @@
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
-\hypersetup{
-  pdftitle={Reloc-Age},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
 
 \title{Reloc-Age}
 \author{}
@@ -101,6 +101,14 @@
 }
 \hypertarget{about}{%
 \chapter{About}\label{about}}
+
+This document outlines the aims, motivations, and research questions of the RELOC-AGE project.
+Descriptions on data retrieval, data processing, as well as some exploratory analysis and initial findings are also reported.
+
+Using the sidebar found on the left, one may easily navigate the document to browse the contents.
+
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
 
 RELOC-AGE: How Do Housing Choices and Relocation Matter for Active and Healthy Ageing?
 
@@ -123,7 +131,7 @@ the objectives of this multistage mixed methods participatory project are to:
 \end{itemize}
 
 \hypertarget{research-questions}{%
-\chapter{Research questions}\label{research-questions}}
+\section{Research questions}\label{research-questions}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -138,7 +146,7 @@ the objectives of this multistage mixed methods participatory project are to:
 \tightlist
 \item
   How are these patterns affected by age, sex, civil status, country of origin, adverse health
-  events, loss of a partner, socio-economic and neighbourhood characteristics?
+  events, loss of a partner, socio-economic and neighborhood characteristics?
 \item
   Given equal propensity of relocation based on baseline demographic, socio-economic and
   health characteristics, how do specific housing decisions affect future health outcomes?
