@@ -1,4 +1,4 @@
-# Housing data
+# Exploring data - Housing
 
 Study period 2012-2020 when data is made available from SCB from the Real estate and Apartment registers.  Data is taken from three SCB data sources: lev_lisa, lev_housing, and lev_population.  The following steps are taken to arrive at a complete data set:
 
@@ -11,6 +11,24 @@ Study period 2012-2020 when data is made available from SCB from the Real estate
 * As data from lev_lisa ends in 2019 and data from the lev_housing data set ends in 2020, time invariant variables(year of birth, sex, education, etc.) from unique individuals in 2019 are replicated for 2020 to facilitate the appropriate matching to the unique identifiers in the 2020 Housing data. 
 
 * Lastly, the data is joined by the unique lopnr-year combination with the lev_housing data.
+
+## Descriptive statistics
+
+
+```{r,out.width="100%"}
+
+knitr::include_graphics(here("output/figures", "no_relocations_red.png"))
+```
+
+```{r,out.width="100%"}
+
+knitr::include_graphics(here("output/figures", "age_group_housing.png"))
+```
+
+```{r,out.width="100%"}
+
+knitr::include_graphics(here("output/figures", "edu_sex_yob.png"))
+```
 
 ## Specific data considerations
 
