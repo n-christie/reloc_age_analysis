@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Overview of Registers and Data | Reloc-Age</title>
+  <meta name="description" content="Description and intial analysis for the Reloc-Age project" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Overview of Registers and Data | Reloc-Age" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Description and intial analysis for the Reloc-Age project" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Overview of Registers and Data | Reloc-Age" />
+  
+  <meta name="twitter:description" content="Description and intial analysis for the Reloc-Age project" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction.html"/>
+<link rel="next" href="exploring-data---individuals.html"/>
+<script src="libs/header-attrs-2.14.2/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Reloc-Age</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#about" id="toc-about"><span class="toc-section-number">1</span> About<span></span></a></li>
+<li><a href="introduction.html#introduction" id="toc-introduction"><span class="toc-section-number">2</span> Introduction<span></span></a>
+<ul>
+<li><a href="introduction.html#research-questions" id="toc-research-questions"><span class="toc-section-number">2.1</span> Research questions<span></span></a></li>
+</ul></li>
+<li><a href="overview-of-registers-and-data.html#overview-of-registers-and-data" id="toc-overview-of-registers-and-data"><span class="toc-section-number">3</span> Overview of Registers and Data<span></span></a>
+<ul>
+<li><a href="overview-of-registers-and-data.html#description-of-data-sets-from-scb" id="toc-description-of-data-sets-from-scb"><span class="toc-section-number">3.1</span> Description of data sets from SCB<span></span></a></li>
+<li><a href="overview-of-registers-and-data.html#dataset-overview" id="toc-dataset-overview"><span class="toc-section-number">3.2</span> Dataset overview<span></span></a></li>
+<li><a href="overview-of-registers-and-data.html#data-cleaning-and-joining-of-raw-data" id="toc-data-cleaning-and-joining-of-raw-data"><span class="toc-section-number">3.3</span> Data cleaning and joining of raw data<span></span></a>
+<ul>
+<li><a href="overview-of-registers-and-data.html#scb-data" id="toc-scb-data"><span class="toc-section-number">3.3.1</span> SCB data<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="exploring-data---individuals.html#exploring-data---individuals" id="toc-exploring-data---individuals"><span class="toc-section-number">4</span> Exploring data - Individuals<span></span></a></li>
+<li><a href="exploring-data---housing.html#exploring-data---housing" id="toc-exploring-data---housing"><span class="toc-section-number">5</span> Exploring data - Housing<span></span></a>
+<ul>
+<li><a href="exploring-data---housing.html#descriptive-statistics" id="toc-descriptive-statistics"><span class="toc-section-number">5.1</span> Descriptive statistics<span></span></a></li>
+<li><a href="exploring-data---housing.html#specific-data-considerations" id="toc-specific-data-considerations"><span class="toc-section-number">5.2</span> Specific data considerations<span></span></a>
+<ul>
+<li><a href="exploring-data---housing.html#identifying-partners" id="toc-identifying-partners"><span class="toc-section-number">5.2.1</span> Identifying partners<span></span></a></li>
+<li><a href="exploring-data---housing.html#recoding-varaibles" id="toc-recoding-varaibles"><span class="toc-section-number">5.2.2</span> Recoding varaibles<span></span></a></li>
+<li><a href="exploring-data---housing.html#indentifying-relocations" id="toc-indentifying-relocations"><span class="toc-section-number">5.2.3</span> Indentifying relocations<span></span></a></li>
+<li><a href="exploring-data---housing.html#indentifying-change-in-kommun" id="toc-indentifying-change-in-kommun"><span class="toc-section-number">5.2.4</span> Indentifying change in kommun<span></span></a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Reloc-Age</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="overview-of-registers-and-data" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Overview of Registers and Data<a href="overview-of-registers-and-data.html#overview-of-registers-and-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The study period in Register RELOC-AGE ranges from 1990-2020 and is comprised of 13 registers with staggered coverage which is here illustrated.</p>
+<p><img src="output/figures/timeline_registers_update.png" width="100%" /></p>
+<p>The table below gives a description of the various registers,
+noting the types of variables contained within.</p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:800px; ">
+<table class="table table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-3">Table 3.1: </span>Register descriptions
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Register
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Total Population Register (TPR) (1968)
+</td>
+<td style="text-align:left;">
+Sex; birth date; civil status (duration, dates, changes); address (dates, changes); income; country of origin; citizenship; in-/emigration (dates); n of people in the dwelling; housing tenure; socioeconomic indicators of the neighbourhoods (on postal code, municipal levels)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+National Patient Register (NPR) (1987)
+</td>
+<td style="text-align:left;">
+Hospitalization outcomes: total no. of hospitalizations/month; in-patient health outcomes based on ICD-10 chapters (e.g., for falls, fractures, stroke etc.)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Real Estate Property Register (REPR) (1908)
+</td>
+<td style="text-align:left;">
+Objective housing characteristics for each dwelling: type of dwelling; price of dwelling; type of tenure; size; presence of stairs/elevator; floor; building and construction year; characteristics of the neighbourhood: communal facilities (e.g., roads), green areas; date of each relocation
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Geographical database (GD) (1952)
+</td>
+<td style="text-align:left;">
+DESO (demographical statistical unit); coordinates of the housing and address etc.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Death Cause Register (DR) (1952)
+</td>
+<td style="text-align:left;">
+Death cause and date
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Longitudinal integrated database for health
+insurance and labour market studies (LISA) (1990)
+</td>
+<td style="text-align:left;">
+Education level, income, social insurance
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Drug Prescription Register (DPR) (2005)
+</td>
+<td style="text-align:left;">
+Drug prescriptions for chronic illnesses (ATC code, dose and date): endocrine; cardiovascular; hepatic; renal or neurological/ neuromuscular
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Swedish Intensive Care Register (SIRI) (2001)
+</td>
+<td style="text-align:left;">
+Intensive care for laboratory-confirmed influenza and (since 2020) COVID-19.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Swedish internet-based surveillance system for communicable diseases (SmiNet) (1997; 2004)
+</td>
+<td style="text-align:left;">
+Laboratory-confirmed influenza and (since 2020) COVID-19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Municipal Health Care Register (MHCR) (2007)
+</td>
+<td style="text-align:left;">
+Care received and date
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Interventions for Elderly and People with Disabilities Register (IEPDR) (2007)
+</td>
+<td style="text-align:left;">
+Home help and service type and no of hours/month/year: escorting, replace the relative, personal care, meal delivery, security alarm, daytime activities; short-term vs long-term
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Apartment Register (AR) (2012)
+</td>
+<td style="text-align:left;">
+Dwelling type; number of rooms; dwelling unit size; kitchen type
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Scania Outdoor Environment Database (ScOut)
+</td>
+<td style="text-align:left;">
+24 outdoor environemtn qualities 2008-2019
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="description-of-data-sets-from-scb" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Description of data sets from SCB<a href="overview-of-registers-and-data.html#description-of-data-sets-from-scb" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A large amount of data from the registrars is accessed through Statistics Sweden (SCB). This data is delivered in text format (file extension .txt), and is partitioned, for the most part, into individual files separated by both year and grouped data set. While the data contained in this data originates from the specified data Registrars previously outlined, the data is received from SCB consolidated and grouped into various data sets which require further cleaning and processing. These grouped data sets are described below.</p>
+</div>
+<div id="dataset-overview" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Dataset overview<a href="overview-of-registers-and-data.html#dataset-overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Most of the descriptive data comes from LISA (lev_lisa in the table below), with more than 5 million individuals, over 128 million individual-year observations, and 95 variables across 30 years. The coverage of the other data sets is also documented, with linking of data sets possible by matching on a individual’s unique identifier, Lopnr.</p>
+<table class="table table-responsive table-hover" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-4">Table 3.2: </span>Dataset descriptions
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Dataset
+</th>
+<th style="text-align:left;">
+First year
+</th>
+<th style="text-align:left;">
+Last year
+</th>
+<th style="text-align:left;">
+Obs
+</th>
+<th style="text-align:left;">
+No. Variables
+</th>
+<th style="text-align:left;">
+Unique ids
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+lev_civil
+</td>
+<td style="text-align:left;">
+1998
+</td>
+<td style="text-align:left;">
+2019
+</td>
+<td style="text-align:left;">
+1523503
+</td>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+1273606
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_fodelseland
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+5687933
+</td>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+5687931
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_housing
+</td>
+<td style="text-align:left;">
+2012
+</td>
+<td style="text-align:left;">
+2020
+</td>
+<td style="text-align:left;">
+29628301
+</td>
+<td style="text-align:left;">
+23
+</td>
+<td style="text-align:left;">
+3691638
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_in_utv
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+1199921
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+813991
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_ind_koord
+</td>
+<td style="text-align:left;">
+1990
+</td>
+<td style="text-align:left;">
+2019
+</td>
+<td style="text-align:left;">
+172620690
+</td>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+5713728
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_inr_flytt
+</td>
+<td style="text-align:left;">
+1998
+</td>
+<td style="text-align:left;">
+2019
+</td>
+<td style="text-align:left;">
+5794996
+</td>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+2649340
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_lisa
+</td>
+<td style="text-align:left;">
+1990
+</td>
+<td style="text-align:left;">
+2019
+</td>
+<td style="text-align:left;">
+128428907
+</td>
+<td style="text-align:left;">
+95
+</td>
+<td style="text-align:left;">
+5514771
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_partners_RTB
+</td>
+<td style="text-align:left;">
+1987
+</td>
+<td style="text-align:left;">
+2019
+</td>
+<td style="text-align:left;">
+134704934
+</td>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+5255938
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_population_personnr
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+5713728
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_samh
+</td>
+<td style="text-align:left;">
+1987
+</td>
+<td style="text-align:left;">
+2019
+</td>
+<td style="text-align:left;">
+82660469
+</td>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+4071181
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_utb_foraldrar
+</td>
+<td style="text-align:left;">
+1990
+</td>
+<td style="text-align:left;">
+2019
+</td>
+<td style="text-align:left;">
+110702340
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+</tr>
+</tbody>
+</table>
+<p>In joining data sets, the number of unique individuals resultant in the final data set may vary depending on the coverage of specific variables in each data source.
+Nonetheless, it may be informational to see the number of unique individuals represented in each data set over time to get an idea of the coverage.
+The table below tallies the number of unique individuals found in each year of each data set.</p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:800px; ">
+<table class="table table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:unnamed-chunk-5">Table 3.3: </span>Observations over time
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Dataset
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+1987
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+1988
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+1989
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+1990
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+1991
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+1992
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+1993
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+1994
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+1995
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+1996
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+1997
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+1998
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+1999
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2000
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2001
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2002
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2003
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2004
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2005
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2006
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2007
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2008
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2009
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2010
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2011
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2012
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2013
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2014
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2015
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2016
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2017
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2018
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2019
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+2020
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+lev_civil
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+87959
+</td>
+<td style="text-align:left;">
+89682
+</td>
+<td style="text-align:left;">
+89293
+</td>
+<td style="text-align:left;">
+83211
+</td>
+<td style="text-align:left;">
+82905
+</td>
+<td style="text-align:left;">
+80373
+</td>
+<td style="text-align:left;">
+79194
+</td>
+<td style="text-align:left;">
+77621
+</td>
+<td style="text-align:left;">
+74139
+</td>
+<td style="text-align:left;">
+73405
+</td>
+<td style="text-align:left;">
+72494
+</td>
+<td style="text-align:left;">
+68482
+</td>
+<td style="text-align:left;">
+68649
+</td>
+<td style="text-align:left;">
+64109
+</td>
+<td style="text-align:left;">
+63702
+</td>
+<td style="text-align:left;">
+59319
+</td>
+<td style="text-align:left;">
+56135
+</td>
+<td style="text-align:left;">
+54670
+</td>
+<td style="text-align:left;">
+53249
+</td>
+<td style="text-align:left;">
+50224
+</td>
+<td style="text-align:left;">
+48763
+</td>
+<td style="text-align:left;">
+45925
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_fodelseland
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_housing
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_in_utv
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_ind_koord
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+5754023
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_inr_flytt
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+389315
+</td>
+<td style="text-align:left;">
+377036
+</td>
+<td style="text-align:left;">
+342396
+</td>
+<td style="text-align:left;">
+323249
+</td>
+<td style="text-align:left;">
+309272
+</td>
+<td style="text-align:left;">
+305802
+</td>
+<td style="text-align:left;">
+301741
+</td>
+<td style="text-align:left;">
+303007
+</td>
+<td style="text-align:left;">
+290995
+</td>
+<td style="text-align:left;">
+284061
+</td>
+<td style="text-align:left;">
+264110
+</td>
+<td style="text-align:left;">
+250436
+</td>
+<td style="text-align:left;">
+244198
+</td>
+<td style="text-align:left;">
+234469
+</td>
+<td style="text-align:left;">
+224082
+</td>
+<td style="text-align:left;">
+219812
+</td>
+<td style="text-align:left;">
+211368
+</td>
+<td style="text-align:left;">
+204995
+</td>
+<td style="text-align:left;">
+187314
+</td>
+<td style="text-align:left;">
+179903
+</td>
+<td style="text-align:left;">
+177076
+</td>
+<td style="text-align:left;">
+170359
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_lisa
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+5312803
+</td>
+<td style="text-align:left;">
+5261977
+</td>
+<td style="text-align:left;">
+5205700
+</td>
+<td style="text-align:left;">
+5150603
+</td>
+<td style="text-align:left;">
+5101454
+</td>
+<td style="text-align:left;">
+5035089
+</td>
+<td style="text-align:left;">
+4964001
+</td>
+<td style="text-align:left;">
+4891790
+</td>
+<td style="text-align:left;">
+4818086
+</td>
+<td style="text-align:left;">
+4741396
+</td>
+<td style="text-align:left;">
+4665187
+</td>
+<td style="text-align:left;">
+4587486
+</td>
+<td style="text-align:left;">
+4507633
+</td>
+<td style="text-align:left;">
+4427880
+</td>
+<td style="text-align:left;">
+4348367
+</td>
+<td style="text-align:left;">
+4266201
+</td>
+<td style="text-align:left;">
+4187190
+</td>
+<td style="text-align:left;">
+4106632
+</td>
+<td style="text-align:left;">
+4025365
+</td>
+<td style="text-align:left;">
+3946326
+</td>
+<td style="text-align:left;">
+3864462
+</td>
+<td style="text-align:left;">
+3782782
+</td>
+<td style="text-align:left;">
+3698989
+</td>
+<td style="text-align:left;">
+3616078
+</td>
+<td style="text-align:left;">
+3533779
+</td>
+<td style="text-align:left;">
+3448876
+</td>
+<td style="text-align:left;">
+3363283
+</td>
+<td style="text-align:left;">
+3275888
+</td>
+<td style="text-align:left;">
+3188760
+</td>
+<td style="text-align:left;">
+3104844
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_partners_RTB
+</td>
+<td style="text-align:left;">
+5108973
+</td>
+<td style="text-align:left;">
+5071488
+</td>
+<td style="text-align:left;">
+5036083
+</td>
+<td style="text-align:left;">
+4993099
+</td>
+<td style="text-align:left;">
+4944902
+</td>
+<td style="text-align:left;">
+4891796
+</td>
+<td style="text-align:left;">
+4839329
+</td>
+<td style="text-align:left;">
+4791287
+</td>
+<td style="text-align:left;">
+4728655
+</td>
+<td style="text-align:left;">
+4661884
+</td>
+<td style="text-align:left;">
+4593517
+</td>
+<td style="text-align:left;">
+4522768
+</td>
+<td style="text-align:left;">
+4448630
+</td>
+<td style="text-align:left;">
+4374325
+</td>
+<td style="text-align:left;">
+4297860
+</td>
+<td style="text-align:left;">
+4218691
+</td>
+<td style="text-align:left;">
+4139340
+</td>
+<td style="text-align:left;">
+4059965
+</td>
+<td style="text-align:left;">
+3977967
+</td>
+<td style="text-align:left;">
+3897604
+</td>
+<td style="text-align:left;">
+3815902
+</td>
+<td style="text-align:left;">
+3733369
+</td>
+<td style="text-align:left;">
+3652710
+</td>
+<td style="text-align:left;">
+3569711
+</td>
+<td style="text-align:left;">
+3486981
+</td>
+<td style="text-align:left;">
+3402238
+</td>
+<td style="text-align:left;">
+3318831
+</td>
+<td style="text-align:left;">
+3236166
+</td>
+<td style="text-align:left;">
+3150938
+</td>
+<td style="text-align:left;">
+3064965
+</td>
+<td style="text-align:left;">
+2977386
+</td>
+<td style="text-align:left;">
+2890425
+</td>
+<td style="text-align:left;">
+2807149
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_population_personnr
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_samh
+</td>
+<td style="text-align:left;">
+3092138
+</td>
+<td style="text-align:left;">
+3073549
+</td>
+<td style="text-align:left;">
+3135171
+</td>
+<td style="text-align:left;">
+3264915
+</td>
+<td style="text-align:left;">
+3215892
+</td>
+<td style="text-align:left;">
+3162515
+</td>
+<td style="text-align:left;">
+3105614
+</td>
+<td style="text-align:left;">
+3052750
+</td>
+<td style="text-align:left;">
+2988447
+</td>
+<td style="text-align:left;">
+2920817
+</td>
+<td style="text-align:left;">
+2854097
+</td>
+<td style="text-align:left;">
+2780969
+</td>
+<td style="text-align:left;">
+2711726
+</td>
+<td style="text-align:left;">
+2645382
+</td>
+<td style="text-align:left;">
+2578562
+</td>
+<td style="text-align:left;">
+2512362
+</td>
+<td style="text-align:left;">
+2446707
+</td>
+<td style="text-align:left;">
+2384675
+</td>
+<td style="text-align:left;">
+2322301
+</td>
+<td style="text-align:left;">
+2262697
+</td>
+<td style="text-align:left;">
+2204481
+</td>
+<td style="text-align:left;">
+2147291
+</td>
+<td style="text-align:left;">
+2089528
+</td>
+<td style="text-align:left;">
+2032455
+</td>
+<td style="text-align:left;">
+2212969
+</td>
+<td style="text-align:left;">
+2151093
+</td>
+<td style="text-align:left;">
+2089616
+</td>
+<td style="text-align:left;">
+2028377
+</td>
+<td style="text-align:left;">
+1964970
+</td>
+<td style="text-align:left;">
+1903222
+</td>
+<td style="text-align:left;">
+1839200
+</td>
+<td style="text-align:left;">
+1774586
+</td>
+<td style="text-align:left;">
+1711395
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lev_utb_foraldrar
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+3690078
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+</tbody>
+</table>
+</div></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>To better gauge the number of individuals after a typical joining of data sets,
+here we show the number of individuals overtime and sex belonging to the LISA data set, matched with the unique individuals of the population data set.</p>
+<p><img src="output/figures/n_sex_time.png" width="100%" /></p>
+</div>
+<div id="data-cleaning-and-joining-of-raw-data" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Data cleaning and joining of raw data<a href="overview-of-registers-and-data.html#data-cleaning-and-joining-of-raw-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As illustrated above, the data from RELOC-AGE is comprised of from several registers and sources. In order to arrive at the final data set, a number of data cleaning actions, multiple joins, and many quality control steps have been taken to insure reliable analysis and data integrity. This section details steps taken.</p>
+<div id="scb-data" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> SCB data<a href="overview-of-registers-and-data.html#scb-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>With data covering about 3 million individuals over decades and with a multitude of variables spread out across hundreds of very large files, the computational effort to complete these tasks are very time intensive, often taking hours for a large merge, with progress occasionally hindered by computational restrictions and small errors which arise in the data cleaning process. With this in mind, detailed documentation, contained both here and alongside code used in the data cleaning, is prioritized to reduce any need to repeat these time-intensive processes.</p>
+<p>As a first step, the following initial data cleaning is performed:</p>
+<ul>
+<li>Raw data files are organized into folder structure where each folder contains all data from a particular data set.</li>
+<li>An individual script for each data set is written in R that reads the raw yearly .txt files and merges files into one data set.</li>
+<li>When required, a variable “year” is generated in the joined data set specifying which year the data originates from( taken from the name of the .txt file).</li>
+<li>Variables are renamed into lowercase with spaces and other delimiters transformed into underscores ( _ ) for consistent naming conventions and avoidance of future merge conflicts.</li>
+<li>The joined and cleaned data set is saved in the contained folder in both R’s .rds and Stata’s .dta formats.</li>
+<li>A README.txt file is created in each folder documenting the process.</li>
+</ul>
+<p>The result consists of eleven folders each containing a data set’s respective raw data, a documented R merging/cleaning script for full reproducibility, and a merged data set in both R and Stata format to be used in subsequent merging and further analysis.</p>
+<p><img src="output/figures/folder_structure.png" width="100%" /></p>
+
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exploring-data---individuals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": {},
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

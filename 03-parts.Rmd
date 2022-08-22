@@ -11,8 +11,3 @@ knitr::include_graphics(here("output/figures", "age_groups_2012_2020_brown_perce
 knitr::include_graphics(here("output/figures", "no_individual_red.png"))
 ```
 
-```{r,out.width="100%"}
-
-knitr::include_graphics(here("output/figures", "n_sex_time.png"))
-```
-

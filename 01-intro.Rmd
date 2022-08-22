@@ -87,6 +87,14 @@ The table below tallies the number of unique individuals found in each year of e
 
 ```
 
+To better gauge the number of individuals after a typical joining of data sets,
+here we show the number of individuals overtime and sex belonging to the LISA data set, matched with the unique individuals of the population data set.
+
+```{r,out.width="100%"}
+
+knitr::include_graphics(here("output/figures", "n_sex_time.png"))
+```
+
 
 ## Data cleaning and joining of raw data
 
