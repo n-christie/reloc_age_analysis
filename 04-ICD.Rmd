@@ -1,0 +1,28 @@
+
+# ICD codes.
+
+Data files from Socialstyrelsen includes inpatient and outpatient data ranging from 1987 to 2020.
+A particular area of interest in these data files is that of the reported International Classification of Diseases (ICD) codes reported by the physicians from  inpatient/outpatient visits.
+Closely examining the ICD codes, it is possible to not only classify individuals into groups  according to specific risks (eg. high influenza risk),
+but also to observe outcomes(contracts influenza).
+
+This section documents the process of code extraction,
+classification, and details in working with the ICD codes reported by Socialstyrelsen. 
+
+## ICD Code types
+
+Working with ICD codes is notoriously messy.
+There are a multitude of disease codes (ICD-10CM has around 70,000) which may differ slightly depending on which country uses them (18 different countries had national adoptions).
+The classification system has changed over the years, from ICD 8, ICD 9, to the contemporary ICD 10.
+ICD 11 is on the horizon.
+Translating 
+
+The follow are points that need to be addressed when working with ICD codes:
+
+* ICD codes in the earlier years may need to be converted to ICD 10 for proper classification
+
+* ICD codes may be reported in different formats and need to be standardized(eg. A12.2 may be reported as A122 or A12200)
+
+* ICD code chapters are often reported in place of an individual ICD code.
+These are reported as a code range, such as "H00-H59", but may take on various iterations which make matching challenging (eg. "H00-H590", H000-H590","H00-H599", "H00-H99". etc)
+
