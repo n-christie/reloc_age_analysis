@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 ICD codes. | Reloc-Age</title>
+  <meta name="description" content="Description and intial analysis for the Reloc-Age project" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 ICD codes. | Reloc-Age" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Description and intial analysis for the Reloc-Age project" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 ICD codes. | Reloc-Age" />
+  
+  <meta name="twitter:description" content="Description and intial analysis for the Reloc-Age project" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="exploring-data---individuals.html"/>
+<link rel="next" href="exploring-data---housing.html"/>
+<script src="libs/header-attrs-2.14.2/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Reloc-Age</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#about" id="toc-about"><span class="toc-section-number">1</span> About<span></span></a></li>
+<li><a href="introduction.html#introduction" id="toc-introduction"><span class="toc-section-number">2</span> Introduction<span></span></a>
+<ul>
+<li><a href="introduction.html#research-questions" id="toc-research-questions"><span class="toc-section-number">2.1</span> Research questions<span></span></a></li>
+</ul></li>
+<li><a href="overview-of-registers-and-data.html#overview-of-registers-and-data" id="toc-overview-of-registers-and-data"><span class="toc-section-number">3</span> Overview of Registers and Data<span></span></a>
+<ul>
+<li><a href="overview-of-registers-and-data.html#description-of-data-sets-from-scb" id="toc-description-of-data-sets-from-scb"><span class="toc-section-number">3.1</span> Description of data sets from SCB<span></span></a>
+<ul>
+<li><a href="overview-of-registers-and-data.html#dataset-overview" id="toc-dataset-overview"><span class="toc-section-number">3.1.1</span> Dataset overview<span></span></a></li>
+<li><a href="overview-of-registers-and-data.html#data-cleaning-and-joining-of-raw-data" id="toc-data-cleaning-and-joining-of-raw-data"><span class="toc-section-number">3.1.2</span> Data cleaning and joining of raw data<span></span></a></li>
+</ul></li>
+<li><a href="overview-of-registers-and-data.html#description-of-data-sets-from-socialstyrelesen" id="toc-description-of-data-sets-from-socialstyrelesen"><span class="toc-section-number">3.2</span> Description of data sets from Socialstyrelesen<span></span></a>
+<ul>
+<li><a href="overview-of-registers-and-data.html#dataset-overview-1" id="toc-dataset-overview-1"><span class="toc-section-number">3.2.1</span> Dataset overview<span></span></a></li>
+<li><a href="overview-of-registers-and-data.html#data-cleaning-and-joining-of-raw-data-1" id="toc-data-cleaning-and-joining-of-raw-data-1"><span class="toc-section-number">3.2.2</span> Data cleaning and joining of raw data<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="exploring-data---individuals.html#exploring-data---individuals" id="toc-exploring-data---individuals"><span class="toc-section-number">4</span> Exploring data - Individuals<span></span></a></li>
+<li><a href="icd-codes..html#icd-codes." id="toc-icd-codes."><span class="toc-section-number">5</span> ICD codes.<span></span></a>
+<ul>
+<li><a href="icd-codes..html#icd-code-types" id="toc-icd-code-types"><span class="toc-section-number">5.1</span> ICD Code types<span></span></a></li>
+<li><a href="icd-codes..html#decoding-the-codes---matching" id="toc-decoding-the-codes---matching"><span class="toc-section-number">5.2</span> Decoding the codes - matching<span></span></a></li>
+</ul></li>
+<li><a href="exploring-data---housing.html#exploring-data---housing" id="toc-exploring-data---housing"><span class="toc-section-number">6</span> Exploring data - Housing<span></span></a>
+<ul>
+<li><a href="exploring-data---housing.html#descriptive-statistics" id="toc-descriptive-statistics"><span class="toc-section-number">6.1</span> Descriptive statistics<span></span></a></li>
+<li><a href="exploring-data---housing.html#specific-data-considerations" id="toc-specific-data-considerations"><span class="toc-section-number">6.2</span> Specific data considerations<span></span></a>
+<ul>
+<li><a href="exploring-data---housing.html#identifying-partners" id="toc-identifying-partners"><span class="toc-section-number">6.2.1</span> Identifying partners<span></span></a></li>
+<li><a href="exploring-data---housing.html#recoding-varaibles" id="toc-recoding-varaibles"><span class="toc-section-number">6.2.2</span> Recoding varaibles<span></span></a></li>
+<li><a href="exploring-data---housing.html#indentifying-relocations" id="toc-indentifying-relocations"><span class="toc-section-number">6.2.3</span> Indentifying relocations<span></span></a></li>
+<li><a href="exploring-data---housing.html#indentifying-change-in-kommun" id="toc-indentifying-change-in-kommun"><span class="toc-section-number">6.2.4</span> Indentifying change in kommun<span></span></a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Reloc-Age</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="icd-codes." class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> ICD codes.<a href="icd-codes..html#icd-codes." class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Data files from Socialstyrelsen includes inpatient and outpatient data ranging from 1987 to 2020.
+A particular area of interest in these data files is that of the reported International Classification of Diseases (ICD) codes reported by the physicians from inpatient/outpatient visits.
+Closely examining the ICD codes, it is possible to not only classify individuals into groups according to specific risks (eg. high influenza risk),
+but also to observe outcomes(contracts influenza).</p>
+<p>This section documents the process of code extraction,
+classification, and details in working with the ICD codes reported by Socialstyrelsen.</p>
+<div id="icd-code-types" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> ICD Code types<a href="icd-codes..html#icd-code-types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Working with ICD codes is notoriously messy.
+There are a multitude of disease codes (ICD-10CM has around 70,000) which may differ slightly depending on which country uses them (18 different countries had national adoptions).
+The classification system has changed over the years, from ICD 8, ICD 9, to the contemporary ICD 10.
+ICD 11 is on the horizon.
+Translating</p>
+<p>The follow are points that need to be addressed when working with ICD codes:</p>
+<ul>
+<li><p>ICD codes in the earlier years may need to be converted to ICD 10 for proper classification</p></li>
+<li><p>ICD codes may be reported in different formats and need to be standardized(eg. A12.2 may be reported as A122 or A12200)</p></li>
+<li><p>Similarly, upper and lower case is often mixed across the data tables(eg. a112.b and A112.B)</p></li>
+<li><p>ICD code chapters are often reported in place of an individual ICD code.
+These are reported as a code range, such as “H00-H59”, but may take on various iterations which make matching challenging (eg. “H00-H590”, H000-H590”,“H00-H599”, “H00-H99”. etc)</p></li>
+</ul>
+</div>
+<div id="decoding-the-codes---matching" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Decoding the codes - matching<a href="icd-codes..html#decoding-the-codes---matching" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The approach taken to match ICD codes for further classification begins with identifying matches to the ICD code and code-ranges present in the Socialstrylsen data with the corresponding definitions provided by Socialstrylsen.
+This step is easier said than done.</p>
+<p>With the end aim to classify these diagnosis codes into Risk groups,
+this step is essential as much of the Socialstyrelsen data is reported in code ranges(eg. H00-H59),
+while the ICD codes found in the risk categories are reported as single codes(eg. H12).</p>
+<p><img src="output/figures/icd_dups.PNG" width="100%" /></p>
+<p>Here we see patient “X” has had four inpatient hospital visits in 2014. We can examine the second row and see the following:</p>
+<ul>
+<li>The main diagnosis (hdia) is given as “C15-C26” in this hospital visit, which is the same as Diagnosis 1 (dia1). This pattern is most commonly seen in the data, where Diagnosis 1 is identical to the Primary diagnosis.</li>
+<li>Additional diagnoses from the same visit can be seen across the columns dia1 through dia11. Here we notice duplicates, presumably because there are multiple and unique diagnoses that fall within the reported range of value “C76-C80”.</li>
+</ul>
+<p>To further investigate the multiple ICD codes from these single visits,
+it is helpful to transform the data from wide format to long format,
+where each row represent a single ICD code,
+to facilitate the joining of descriptions and to classify the codes.</p>
+<p>The following table show the data after transforming from wide to long,
+calculating the number of days per visit,
+and matching a ICD definition to the code (or code range) that is present in the data.
+Duplicate ICD codes from the same visit are removed as they contain no further information.
+A column documenting which source file the definition originates from is also included to trace specific definitions back to the corresponding Socialstyrelsen document or table.</p>
+<p><img src="output/figures/icd_pivot.PNG" width="100%" /></p>
+<p>Tables to match primarily originate from Socialstyrelsen found here:</p>
+<p><a href="https://www.socialstyrelsen.se/statistik-och-data/klassifikationer-och-koder/icd-10/" class="uri">https://www.socialstyrelsen.se/statistik-och-data/klassifikationer-och-koder/icd-10/</a></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="exploring-data---individuals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exploring-data---housing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": {},
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

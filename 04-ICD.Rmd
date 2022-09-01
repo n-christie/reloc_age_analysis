@@ -60,7 +60,7 @@ The following table show the data after transforming from wide to long,
 calculating the number of days per visit,
 and matching a ICD definition to the code (or code range) that is present in the data.
 Duplicate ICD codes from the same visit are removed as they contain no further information.
-A column documenting which source file the definition originates from is also included to trace specific defintions back to the corresponding Socialstyrelsen document or table.
+A column documenting which source file the definition originates from is also included to trace specific definitions back to the corresponding Socialstyrelsen document or table.
 
 
 ```{r,out.width="100%"}
