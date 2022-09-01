@@ -96,6 +96,7 @@
 <li><a href="icd-codes..html#icd-codes." id="toc-icd-codes."><span class="toc-section-number">5</span> ICD codes.<span></span></a>
 <ul>
 <li><a href="icd-codes..html#icd-code-types" id="toc-icd-code-types"><span class="toc-section-number">5.1</span> ICD Code types<span></span></a></li>
+<li><a href="icd-codes..html#decoding-the-codes---matching" id="toc-decoding-the-codes---matching"><span class="toc-section-number">5.2</span> Decoding the codes - matching<span></span></a></li>
 </ul></li>
 <li><a href="exploring-data---housing.html#exploring-data---housing" id="toc-exploring-data---housing"><span class="toc-section-number">6</span> Exploring data - Housing<span></span></a>
 <ul>
@@ -144,10 +145,22 @@ Translating</p>
 <ul>
 <li><p>ICD codes in the earlier years may need to be converted to ICD 10 for proper classification</p></li>
 <li><p>ICD codes may be reported in different formats and need to be standardized(eg. A12.2 may be reported as A122 or A12200)</p></li>
+<li><p>Similarly, upper and lower case is often mixed across the data tables(eg. a112.b and A112.B)</p></li>
 <li><p>ICD code chapters are often reported in place of an individual ICD code.
 These are reported as a code range, such as “H00-H59”, but may take on various iterations which make matching challenging (eg. “H00-H590”, H000-H590”,“H00-H599”, “H00-H99”. etc)</p></li>
 </ul>
+</div>
+<div id="decoding-the-codes---matching" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Decoding the codes - matching<a href="icd-codes..html#decoding-the-codes---matching" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The approach taken to matching the ICD codes for further classification begins with identifying matches to the actual code and code-ranges from the socialstrylsen data.
+With the end aim to classify these diagnosis codes into</p>
 <p><img src="output/figures/icd_dups.PNG" width="100%" /></p>
+<p>Here we see patient “X” has had four inpatient hospital visits in 2014. We can examine the second row and see the following:</p>
+<ul>
+<li>The main diagnosis (hdia) is given as “C15-C26”, which is the same as Diagnosis # 1 (dia1). This pattern is most commonly seen in the data.</li>
+<li>subsequent diagnoses can be seen across the columns dia1:dia11. Here we notice duplicates, presumably because there are multiple and unique diagnoses that fall within the range of “C76-C80”.</li>
+</ul>
+<p><img src="output/figures/icd_pivot.PNG" width="100%" /></p>
 <p>Tables to match primarily originate from Socialstyrelsen found here:</p>
 <p><a href="https://www.socialstyrelsen.se/statistik-och-data/klassifikationer-och-koder/icd-10/" class="uri">https://www.socialstyrelsen.se/statistik-och-data/klassifikationer-och-koder/icd-10/</a></p>
 

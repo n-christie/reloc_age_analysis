@@ -30,8 +30,13 @@ These are reported as a code range, such as "H00-H59", but may take on various i
 
 ## Decoding the codes - matching
 
-The approach taken to matching the ICD codes for further classification begins with identifying matches to the actual code and code-ranges from the socialstrylsen data.
-With the end aim to classify these diagnosis codes into
+The approach taken to match ICD codes for further classification begins with identifying matches to the ICD code and code-ranges present in the Socialstrylsen data with the corresponding definitions provided by Socialstrylsen.
+This step is easier said than done.
+
+With the end aim to classify these diagnosis codes into Risk groups,
+this step is essential as much of the Socialstyrelsen data is reported in code ranges(eg. H00-H59),
+while the ICD codes found in the risk categories are reported as single codes(eg. H12).
+
 
 
 ```{r,out.width="100%"}
@@ -41,8 +46,22 @@ knitr::include_graphics(here("output/figures", "icd_dups.png"))
 
 Here we see patient "X" has had four inpatient hospital visits in 2014.  We can examine the second row and see the following:
 
-* The main diagnosis (hdia) is given as "C15-C26", which is the same as Diagnosis # 1 (dia1).  This pattern is most commonly seen in the data.
-* subsequent diagnoses can be seen across the columns dia1:dia11.  Here we notice duplicates, presumably because there are multiple and unique diagnoses that fall within the range of "C76-C80".
+* The main diagnosis (hdia) is given as "C15-C26" in this hospital visit, which is the same as Diagnosis 1 (dia1).  This pattern is most commonly seen in the data, where Diagnosis 1 is identical to the Primary diagnosis. 
+* Additional diagnoses from the same visit can be seen across the columns dia1 through dia11.  Here we notice duplicates, presumably because there are multiple and unique diagnoses that fall within the reported range of value "C76-C80".
+
+
+To further investigate the multiple ICD codes from these single visits,
+it is helpful to transform the data from wide format to long format,
+where each row represent a single ICD code,
+to facilitate the joining of descriptions and to classify the codes.
+
+
+The following table show the data after transforming from wide to long,
+calculating the number of days per visit,
+and matching a ICD definition to the code (or code range) that is present in the data.
+Duplicate ICD codes from the same visit are removed as they contain no further information.
+A column documenting which source file the definition originates from is also included to trace specific defintions back to the corresponding Socialstyrelsen document or table.
+
 
 ```{r,out.width="100%"}
 

@@ -14,6 +14,7 @@ data-cleaning-and-joining-of-raw-data-1
 exploring-data---individuals
 icd-codes.
 icd-code-types
+decoding-the-codes---matching
 exploring-data---housing
 descriptive-statistics
 specific-data-considerations
