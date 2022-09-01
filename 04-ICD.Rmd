@@ -23,8 +23,24 @@ The follow are points that need to be addressed when working with ICD codes:
 
 * ICD codes may be reported in different formats and need to be standardized(eg. A12.2 may be reported as A122 or A12200)
 
+* Similarly, upper and lower case is often mixed across the data tables(eg. a112.b and A112.B)
+
 * ICD code chapters are often reported in place of an individual ICD code.
 These are reported as a code range, such as "H00-H59", but may take on various iterations which make matching challenging (eg. "H00-H590", H000-H590","H00-H599", "H00-H99". etc)
+
+
+
+```{r,out.width="100%"}
+
+knitr::include_graphics(here("output/figures", "icd_dups.png"))
+```
+
+Here we see patient "X" has had four inpatient hospital visits in 2014.  We can examine the second row and see the following:
+
+* The main diagnosis (hdia) is given as "C15-C26", which is the same as Diagnosis # 1 (dia1).  This pattern is most commonly seen in the data.
+* subsequent diagnoses can be seen across the columns dia1:dia11.  Here we notice duplicates, presumably because there are multiple and unique diagnoses that fall within the range of "C76-C80".
+
+
 
 Tables to match primarily originate from Socialstyrelsen found here:
 
