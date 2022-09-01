@@ -26,3 +26,7 @@ The follow are points that need to be addressed when working with ICD codes:
 * ICD code chapters are often reported in place of an individual ICD code.
 These are reported as a code range, such as "H00-H59", but may take on various iterations which make matching challenging (eg. "H00-H590", H000-H590","H00-H599", "H00-H99". etc)
 
+Tables to match primarily originate from Socialstyrelsen found here:
+
+https://www.socialstyrelsen.se/statistik-och-data/klassifikationer-och-koder/icd-10/
+
