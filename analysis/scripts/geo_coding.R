@@ -98,7 +98,7 @@ animate(plot = swed,
         fps = 12,
         renderer = gifski_renderer(loop = T))
 
-anim_save('swed.gif')
+anim_save(here('output/figures', 'swed.gif'))
 
 skåne_map <- map_expand %>% 
   filter(county == "Skåne County") 
