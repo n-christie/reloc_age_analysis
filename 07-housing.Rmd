@@ -32,6 +32,45 @@ knitr::include_graphics(here("output/figures", "edu_sex_yob.png"))
 
 ## Specific data considerations
 
+### Translating types of housing and tenure
+
+(From Susanne):
+
+___Hustyper och upplåtelseformer___
+
+svenska/engelska
+
+Med bostadslägenhet avses en lägenhet avsedd att helt eller till en inte oväsentlig del användas som bostad, oavsett i vilken hustyp den ligger.
+Även bostäder i småhus definieras således som lägenheter. 
+Upplåtelseform Lägenheternas upplåtelseform utgår från ägarförhållandet och inte hur de boende förfogar över lägenheterna
+
+___Hustyp/Type of housing___
+
+*	__Småhus__ avser friliggande en- och tvåbostadshus samt par-, rad- och kedjehus (exklusive fritidshus).
+*	__One-or-two-dwelling buildings__ means detached buildings as well as semi-detached, row and linked buildings (excluding buildings for seasonal and secondary use).
+*	__Flerbostadshus__ avser bostadsbyggnader innehållande tre eller flera lägenheter inklusive loftgångshus.
+*	__Multi-dwelling buildings__ means buildings with three or more apartments including balcony access housing.
+*	__Övriga__ hus avser byggnader som inte huvudsakligen är avsedda för bostadsändamål men ändå innehåller bostadslägenheter, t.ex. byggnader avsedda för verksamhet/samhälls¬funktion.
+*	__Other housing__ means buildings that are not mainly intended for residential purposes but still contains ordinary dwellings, e.g. buildings used for business/public function.
+*	__Specialbostäder__ avser bostäder för äldre/funktionshindrade, studentbostäder, etc.
+*	__Special housing__ means dwellings for older people, persons with disabilities, students, etc.
+
+___Upplåtelseform___
+
+*	__Hyresrätt__: Flerbostadshus och övriga hus med hyresrätt avser lägenheter som inte är ägarlägenheter och som ägs av andra än bostadsrättsföreningar/bostadsföreningar. Småhus med hyresrätt avser lägenheter som ägs av andra ägare än fysiska personer, dödsbon, bostadsrättsföreningar/bostadsföreningar.
+*	__Rented dwellings__: Multi-dwelling and other buildings with dwellings that are owned by other than housing cooperatives. One- or two-dwelling buildings with rented dwellings means apartments owned by other than private persons, estates of deceased persons or housing cooperatives.
+*	__Bostadsrätt__: Bostadsrätt avser lägenheter som ägs av bostadsrättsföreningar/ bostadsföreningar (äldre form som existerade innan 1930).
+*	__Tenant-owned dwelling__: One-, two- or multi-dwellings owned by housing cooperatives.
+*	__Äganderätt__: Småhus med äganderätt avser lägenheter som ägs av fysiska personer eller dödsbon. Flerbostadshus och övriga hus med äganderätt avser ägarlägenheter.
+*	__Owner-occupied dwelling__: One- or two-dwelling buildings with apartments owned by private persons or estates of deceased persons. Multi-dwelling and other buildings with owner-occupied dwelling means condominiums.
+
+Källa SCB, bearbetat av Susanne, 2022-09-08
+
+Fotnot SCB:
+Både nyproducerade och existerande lägenheter, vilka tidigare utgjort bortfall i registret, registreras löpande. Därutöver sker rättningar och kompletteringar av tidigare felaktiga uppgifter samt till följd av att det befintliga beståndet förändras, t.ex. genom ombyggnad och rivning. Största delen av de lägenheter som redovisas som specialbostäder och övriga hus från 2013 och framåt ingick tidigare i kategorin flerbostadshus.
+
+
+
 ### Identifying partners
 
 There are some discrepancies in the data when finding consistent partner matches to unique individuals across the multiple data sets. 

@@ -20,6 +20,7 @@ data-cleaning-process
 exploring-data---housing
 descriptive-statistics
 specific-data-considerations
+translating-types-of-housing-and-tenure
 identifying-partners
 recoding-varaibles
 indentifying-relocations

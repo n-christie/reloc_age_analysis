@@ -10,6 +10,7 @@ library(stringr)
 library(jsonlite)
 library(gganimate)
 library(gifski)
+library(ggsflabel)
 
 ## working ----
 
@@ -49,25 +50,55 @@ saveRDS(mun1, here('analysis/files', 'komun_geo_table.rds'))
 map_se <- read_rds( here('analysis/files', 'komun_geo_table.rds')) %>% 
   mutate(fill_data = rnorm(nrow(.)))
 
-## whole country
+map_kommun <- count_table_komun %>% 
+  left_join(map_se,
+            by = c('kommun' = 'code')) %>% 
+  select(id = kommun, geometry,  year, name, county , seat,  count = n)
 
-ggplot(map_se) +
-  geom_sf(aes(fill = fill_data)) +
-  scale_fill_viridis_c() +
+
+count_table_komun_reloc <- readRDS("~/reloc_age_analysis/output/tables/count_table_komun_reloc.rds")
+
+
+temp_merge <- count_table_komun_reloc %>% 
+  filter(change_housing == 'Multi-dwelling to Special housing',
+         #county == "Skåne County",
+          year == 2019) 
+  
+skan_spec <- map_se %>% 
+  left_join(temp_merge,
+            by = c('code' = 'kommun')) %>% 
+  select(id = kommun, geometry,  year, name, county , seat,  change_housing, count = n)
+
+
+
+
+## whole country komun
+map_kommun %>% 
+  #filter(!is.na(id)) %>% 
+ggplot( aes(geometry = geometry)) +
+  geom_sf(aes(fill = count)) +
+  scale_fill_viridis_c(option = "cividis") +
   theme_void()
 
 ## skåne
 
-skåne_map <- map_se %>% 
-  filter(county == "Skåne County") 
 
-ggplot(skåne_map) +
-  geom_sf(aes(fill = fill_data)) +
+
+skåne_map <- skan_spec %>% 
+  filter(county == "Skåne County",
+         # year == 2019
+         ) 
+
+ggplot(skåne_map, aes(geometry = geometry)) +
+  geom_sf(aes(
+     fill = n
+    )) +
   scale_fill_viridis_c(option = "cividis") +
   theme_light()+
   geom_sf_label(aes(label = name),
                 size = 3) +
-  labs(fill = "DATA")
+  labs(fill = "DATA") 
+
 
 ggsave(here('output/figures', 'skane.png'))
 
