@@ -29,6 +29,7 @@ Descriptions on data retrieval, data processing, as well as some exploratory ana
 
 Using the sidebar found on the left, one may easily navigate the document to browse the contents.
 
+Tables and figures are based on summarized, anonymous data. No data is available on this site.
 # Introduction 
 
 RELOC-AGE: How Do Housing Choices and Relocation Matter for Active and Healthy Ageing?
