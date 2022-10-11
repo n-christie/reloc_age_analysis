@@ -6,9 +6,10 @@
 knitr::include_graphics(here("output/figures", "age_groups_2012_2020_brown_percent.png"))
 ```
 
+
 ```{r,out.width="100%"}
 
-knitr::include_graphics(here("output/figures", "no_individual_red.png"))
+knitr::include_graphics(here("output/figures", "edu_sex_yob.png"))
 ```
 
 ## Map testing

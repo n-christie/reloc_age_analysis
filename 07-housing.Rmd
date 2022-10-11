@@ -13,22 +13,35 @@ Study period 2012-2020 when data is made available from SCB from the Real estate
 * Lastly, the data is joined by the unique lopnr-year combination with the lev_housing data.
 
 ## Descriptive statistics
+```{r,out.width="100%"}
+
+knitr::include_graphics(here("output/figures", "no_individual.png"))
+```
+
+Here we see that the vast majority of individuals who have relocated in the sample period have done so only once(82%),
+with a small proportion moving 3 times or more (about 3%)
+
+
+
 
 
 ```{r,out.width="100%"}
 
-knitr::include_graphics(here("output/figures", "no_relocations_red.png"))
+knitr::include_graphics(here("output/figures", "no_individual_red.png"))
 ```
+
+
+On the relocation level, we see that about 70% of revocations have been between some combination of Multi-dwelling and One-dwelling housing types, with a lower proportion of revocations into Special housing
+
+
 
 ```{r,out.width="100%"}
 
 knitr::include_graphics(here("output/figures", "age_group_housing.png"))
 ```
 
-```{r,out.width="100%"}
 
-knitr::include_graphics(here("output/figures", "edu_sex_yob.png"))
-```
+Here, at the housing level, we can see that those in Special housing are mostly in the 85+ category.
 
 ## Specific data considerations
 
@@ -100,7 +113,7 @@ Education, housing type, housing tenure
 
 
 
-### Indentifying relocations
+### Identifying relocations
 
 To identify when an individual has relocated in the data the following considerations are taken into account.
 
@@ -120,6 +133,6 @@ knitr::include_graphics(here("output/figures", "relocation_id.png"))
 
 *	__Byggtyp__ appears to follow the patterns of __fast_lopnr__ and __lghlopnr__, but contains some missing data.  The missing __Byggtyp__ value seems to be associated with the values “Övriga hus” and “Specialböstader” in __housing__. 
 
-### Indentifying change in kommun
+### Identifying change in kommun
 
 In a similar fashion as identifying the change in a housing identifier over time for an individual, we can observe when an individual has relocated outside of a geographical area when the geographical indicator changes. 

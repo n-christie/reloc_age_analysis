@@ -119,10 +119,4 @@ The result consists of eleven folders each containing a data set's respective ra
 knitr::include_graphics(here("output/figures", "folder_structure.png"))
 ```
 
-## Description of data sets from Socialstyrelesen
-
-### Dataset overview
-
-### Data cleaning and joining of raw data
-
 
