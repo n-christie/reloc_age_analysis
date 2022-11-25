@@ -1,0 +1,10 @@
+# Falls
+
+Aging and falls.  What time of year are falls most frequent?
+
+
+
+```{r,out.width="100%"}
+
+knitr::include_graphics(here("output/figures", "seasonal_falls.png"))
+```

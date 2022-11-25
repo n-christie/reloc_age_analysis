@@ -1,0 +1,36 @@
+# COVID-19
+
+## Slutvård data
+
+Slutvård data from Socialstyrelsen contains, among other data items, the primary ICD diagnosis for patients who have stayed at least one night in a hospital.
+As 2020 is covered in our sample, we can look at some patterns with COVID-19 diagnoses - the when, who, and where of hospitalizations in Sweden due to COVID-19.  Using a list of ICD diagnosis codes, we can identify which patients were diagnosed with COVID-19 using the following criteria:
+
+ICD 10 code is equal to one of the following: U071, U072, U089, U099, U109, U119, U129, ZV100 
+
+
+Next, we can look at the following few graphs to give an idea of the data, as well as illustrate some patterns.
+
+A first question may be: How many days did patients spend in the hospital in 2020 due to COVID?
+
+```{r,out.width="100%"}
+
+knitr::include_graphics(here("output/figures", "covid_days_slut.png"))
+```
+
+Above we see a histogram of the number of days patients were hospitalized with a primary diagnosis of COVID-19.
+The distribution is heavily left-skewed, with the average number of days a patient spent in the hospital being 10.02 days.
+
+```{r,out.width="100%"}
+
+knitr::include_graphics(here("output/figures", "covid_months_slut.png"))
+```
+
+```{r,out.width="100%"}
+
+knitr::include_graphics(here("output/figures", "covid_seasonal.png"))
+```
+
+```{r,out.width="100%"}
+
+knitr::include_graphics(here("output/figures", "covid_visits_per.png"))
+```
