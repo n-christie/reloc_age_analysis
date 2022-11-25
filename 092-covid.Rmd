@@ -20,17 +20,49 @@ knitr::include_graphics(here("output/figures", "covid_days_slut.png"))
 Above we see a histogram of the number of days patients were hospitalized with a primary diagnosis of COVID-19.
 The distribution is heavily left-skewed, with the average number of days a patient spent in the hospital being 10.02 days.
 
+
+Below, we can look at the proportion of hospital stays due to COVID-19 by month in 2020.
+Two distinct peaks are observed in the data.
+
 ```{r,out.width="100%"}
 
 knitr::include_graphics(here("output/figures", "covid_months_slut.png"))
 ```
+
+
+While a monthly proportion may be interesting per se,
+simply looking at the number of cases by data may give a better view. 
+Below looks at the unique hospital stays during 2020,
+filled in with the proportion of each ICD code.
+The ICD code "U071" is by far the most common code in the data.
+
 
 ```{r,out.width="100%"}
 
 knitr::include_graphics(here("output/figures", "covid_seasonal.png"))
 ```
 
+
+### Data considerations
+
+Looking at the ICD codes in the Slutvård data,
+we see that individuals may have multiple entries each year for hospital stays.
+Upon further examination,
+the vast majority of these "double entries" are back-to-back checkins.
+In other words, 
+an individual seems to be released from the hospital and then checks back in the very same day,
+creating two (or more if repeated) entries.
+While these revolving door hospital stays could possibly be just that,
+the prevalence of these entries suggest a different mechanism at play - most likely a patient has changed wards or departments.
+For example,
+a patient may be admitted to emergency services for initial COVID-19 symptoms, but then transferred to an Intensive Care Ward, or a recovery ward, which would create three admissions.
+
+Below tallies the number hospital entries patients had for COVID-19.
+
 ```{r,out.width="100%"}
 
 knitr::include_graphics(here("output/figures", "covid_visits_per.png"))
 ```
+
+In the majority of cases,
+patients show having only one hospital entry during the year.
