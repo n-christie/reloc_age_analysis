@@ -96,3 +96,7 @@ Tables to match primarily originate from Socialstyrelsen and can be found here:
 
 https://www.socialstyrelsen.se/statistik-och-data/klassifikationer-och-koder/icd-10/
 
+### Identifying the number of hospital visits
+
+Patient visits documented in the Slutvård data set are recorded in a fashion where counting the number of stays in a particular period, challenging.
+Often is the case where a patient will check out on a particular date, and check in on the same date.  These back-to-back observations are combined and counted as one visit under the assumption they represent the transfer of the patient from one ward or clinic to another.

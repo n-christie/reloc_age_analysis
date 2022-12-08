@@ -136,3 +136,11 @@ knitr::include_graphics(here("output/figures", "relocation_id.png"))
 ### Identifying change in kommun
 
 In a similar fashion as identifying the change in a housing identifier over time for an individual, we can observe when an individual has relocated outside of a geographical area when the geographical indicator changes. 
+
+### Identifying houshold size
+
+As size of household is not present in the data (number of individuals inhabiting a particular residence),
+and estimate is constructed by the following combination of data items.
+First, total number of children living at the residence is calculated by summing the items: barn_0_3, barn_4_6,barn_7_10_barn_11_15, and barn_16_17.
+This estimate is augmented by 1 in the case of an individual living without a partner (no partner data available), or by 2 if a partner is living with that individual.
+For example, an individual who has 2 children and living with a partner would have an calculated household size of 4 (2 children + 1 partner + 1 self)

@@ -1,30 +1,35 @@
 # gantt chart
-
+library(here)
 library(tidyverse)
 library(lubridate)
+library(ggthemes)
 
 df_gantt <- data.frame(Register=c("Total Population Register",
-                            "Longitudinal integrated database \n for health insurance and labour market studies",
-                            "Real estate property register",
-                            "Apartment Register",
-                            "Geographical database",
-                            "Scania outdoor environment database",
+                            "Longitudinal Integrated Database for \n Health Insurance and Labour Market Studies",
+                            "Real Estate Property Register",
                             "National Patient Register",
-                            "Death cause register",
-                            "Drug prescription register",
-                            "Swedish intensive care register",
-                            "Swedish internet-based surveillance system \n for communicable diseases",
-                            "Municipal health care register",
-                            "Interventions for elderly and people with disabilities register"), 
-                 start=as.integer( c("1990", "1990", "1990", "1990", "1990", "1990", "1987", "1990", "2004", "2004", "2004", "2008", "2008")),
-                 end=as.integer( c(rep("2020", 13)))) %>% 
+                            "National Cause of Death Register",
+                            "National Perscribed Drug Register",
+                            "Swedish Intensive Care Register",
+                            "Swedish Internet-based Surveillance System \n for Communicable Diseases",
+                            "National Register of Interventions in Municipal Health Care ",
+                            "National Register of Care and Social Services \n for the Elderly and Persons with Impairments",
+                            "Apartment Register",
+                            "Geographical Database",
+                            "Scania Outdoor Environment Database"), 
+                 start=as.integer( c("1990", "1990", "1990", "1987", "1990", "2005", "2005", "2008", "2005", "2005", "2008", "1990", "2006")),
+                 end=as.integer( c("2020", "2019","2020","2020","2020","2020","2020","2020","2020","2020", "2021", "2020", "2020"))) %>% 
   gather(key = data_type, value = date, - Register)
 
 ggplot() +
-geom_line(data=df_gantt, mapping=aes(x=fct_rev(fct_inorder(Register)), y=date), size=10, color = "blue") +
+geom_line(data=df_gantt, mapping=aes(x=fct_rev(fct_inorder(Register)), y=date), size=5, color = "gray") +
   coord_flip() +
-  labs( title = "Register timeline",
+  labs( title = "",
         x = "",
         y = "") +
-  scale_y_continuous(breaks = seq(from = 1986, to = 2020, by = 2)) +
-  theme_light()
+  scale_y_continuous(breaks = seq(from = 1987, to = 2021, by = 2)) +
+  theme_hc() +
+  theme(text = element_text(size=15))
+
+
+ggsave(here("output/figures","gantt.png"))
