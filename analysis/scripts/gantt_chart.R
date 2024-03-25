@@ -17,8 +17,8 @@ df_gantt <- data.frame(Register=c("Total Population Register",
                             "Apartment Register",
                             "Geographical Database",
                             "Scania Outdoor Environment Database"), 
-                 start=as.integer( c("1990", "1990", "1990", "1987", "1990", "2005", "2005", "2008", "2005", "2005", "2008", "1990", "2006")),
-                 end=as.integer( c("2020", "2019","2020","2020","2020","2020","2020","2020","2020","2020", "2021", "2020", "2020"))) %>% 
+                 start=as.integer( c("1990", "1990", "1990", "1987", "1990", "2005", "2009", "2008", "2005", "2005", "2008", "1990", "2006")),
+                 end=as.integer( c("2020", "2019","2020","2020","2020","2020","2022","2020","2020","2020", "2021", "2020", "2020"))) %>% 
   gather(key = data_type, value = date, - Register)
 
 ggplot() +
@@ -27,9 +27,9 @@ geom_line(data=df_gantt, mapping=aes(x=fct_rev(fct_inorder(Register)), y=date), 
   labs( title = "",
         x = "",
         y = "") +
-  scale_y_continuous(breaks = seq(from = 1987, to = 2021, by = 2)) +
+  scale_y_continuous(breaks = seq(from = 1986, to = 2022, by = 3)) +
   theme_hc() +
   theme(text = element_text(size=15))
 
 
-ggsave(here("output/figures","gantt.png"))
+ggsave(here("output/figures","gantt.png"), width = 11, height = 4, units = "in")

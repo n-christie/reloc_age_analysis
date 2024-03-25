@@ -1,4 +1,4 @@
-# Mortality rates
+# Mortality 
 
 ## Seasonal mortality rates
 

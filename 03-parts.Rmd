@@ -12,20 +12,3 @@ knitr::include_graphics(here("output/figures", "age_groups_2012_2020_brown_perce
 knitr::include_graphics(here("output/figures", "edu_sex_yob.png"))
 ```
 
-## Map testing
-
-```{r,out.width="100%"}
-
-knitr::include_graphics(here("output/figures", "swed.gif"))
-```
-
-
-```{r,out.width="100%"}
-
-knitr::include_graphics(here("output/figures", "skan.gif"))
-```
-
-```{r  fig.width=1}
-
-knitr::include_graphics(here("output/figures", "skane.png"))
-``` 

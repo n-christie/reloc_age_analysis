@@ -98,5 +98,8 @@ https://www.socialstyrelsen.se/statistik-och-data/klassifikationer-och-koder/icd
 
 ### Identifying the number of hospital visits
 
-Patient visits documented in the Slutvård data set are recorded in a fashion where counting the number of stays in a particular period, challenging.
-Often is the case where a patient will check out on a particular date, and check in on the same date.  These back-to-back observations are combined and counted as one visit under the assumption they represent the transfer of the patient from one ward or clinic to another.
+Patient visits documented in the Slutvård data set are recorded in a manner which makes counting the number of stays in a particular period challenging.
+Often is the case where a patient will check out on a particular date, and check back in on the exact same date.
+While a cursory glance might lead one to conclude this phenomenon is the result of consecutive accidents or hospitalizations, the sheer number of occurrences of these back to back visits leads us to another conclusion - that when patients move from one ward to another, from the emergency room to the recovery ward for example, each record is recorded as a separate occurrence in the data set. 
+
+Therefore these back-to-back observations are combined and counted as one visit under the assumption they represent the transfer of the patient from one ward or clinic to another.  Calculations and conclusions are treated as such.  To illustrate, in the above example, the we can see that the last two hopitalizations are back to back: the individual checks out on 09-30, then checks back in on the same date.  When calculating the number of days hospitalized for this particular visit the individual experienced, we would sum the two values of days hospitalized ( 4 days and 16 days) to arrive at a combined total (of 20 days).
