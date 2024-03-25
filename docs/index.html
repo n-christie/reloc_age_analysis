@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Reloc-Age</title>
+  <meta name="description" content="Description and intial analysis for the Reloc-Age project" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Reloc-Age" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Description and intial analysis for the Reloc-Age project" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Reloc-Age" />
+  
+  <meta name="twitter:description" content="Description and intial analysis for the Reloc-Age project" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="overview-of-registers-and-data.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Reloc-Age</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#research-questions"><i class="fa fa-check"></i><b>1.1</b> Research questions</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="overview-of-registers-and-data.html"><a href="overview-of-registers-and-data.html"><i class="fa fa-check"></i><b>2</b> Overview of Registers and Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="overview-of-registers-and-data.html"><a href="overview-of-registers-and-data.html#description-of-data-sets-from-scb"><i class="fa fa-check"></i><b>2.1</b> Description of data sets from SCB</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="overview-of-registers-and-data.html"><a href="overview-of-registers-and-data.html#dataset-overview"><i class="fa fa-check"></i><b>2.1.1</b> Dataset overview</a></li>
+<li class="chapter" data-level="2.1.2" data-path="overview-of-registers-and-data.html"><a href="overview-of-registers-and-data.html#data-cleaning-and-joining-of-raw-data"><i class="fa fa-check"></i><b>2.1.2</b> Data cleaning and joining of raw data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="exploring-data---individuals.html"><a href="exploring-data---individuals.html"><i class="fa fa-check"></i><b>3</b> Exploring data - Individuals</a></li>
+<li class="chapter" data-level="4" data-path="icd-codes..html"><a href="icd-codes..html"><i class="fa fa-check"></i><b>4</b> ICD codes.</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="icd-codes..html"><a href="icd-codes..html#icd-code-types"><i class="fa fa-check"></i><b>4.1</b> ICD Code types</a></li>
+<li class="chapter" data-level="4.2" data-path="icd-codes..html"><a href="icd-codes..html#decoding-the-codes---matching"><i class="fa fa-check"></i><b>4.2</b> Decoding the codes - matching</a></li>
+<li class="chapter" data-level="4.3" data-path="icd-codes..html"><a href="icd-codes..html#data-cleaning-process"><i class="fa fa-check"></i><b>4.3</b> Data cleaning process</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="icd-codes..html"><a href="icd-codes..html#identifying-the-number-of-hospital-visits"><i class="fa fa-check"></i><b>4.3.1</b> Identifying the number of hospital visits</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="relocations.html"><a href="relocations.html"><i class="fa fa-check"></i><b>5</b> Relocations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="relocations.html"><a href="relocations.html#identifying-relocations"><i class="fa fa-check"></i><b>5.1</b> Identifying relocations</a></li>
+<li class="chapter" data-level="5.2" data-path="relocations.html"><a href="relocations.html#descriptive-statistics"><i class="fa fa-check"></i><b>5.2</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="5.3" data-path="relocations.html"><a href="relocations.html#specific-data-considerations"><i class="fa fa-check"></i><b>5.3</b> Specific data considerations</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="relocations.html"><a href="relocations.html#translating-types-of-housing-and-tenure"><i class="fa fa-check"></i><b>5.3.1</b> Translating types of housing and tenure</a></li>
+<li class="chapter" data-level="5.3.2" data-path="relocations.html"><a href="relocations.html#identifying-partners"><i class="fa fa-check"></i><b>5.3.2</b> Identifying partners</a></li>
+<li class="chapter" data-level="5.3.3" data-path="relocations.html"><a href="relocations.html#identifying-change-in-kommun"><i class="fa fa-check"></i><b>5.3.3</b> Identifying change in kommun</a></li>
+<li class="chapter" data-level="5.3.4" data-path="relocations.html"><a href="relocations.html#identifying-houshold-size"><i class="fa fa-check"></i><b>5.3.4</b> Identifying houshold size</a></li>
+<li class="chapter" data-level="5.3.5" data-path="relocations.html"><a href="relocations.html#identifying-special-housing"><i class="fa fa-check"></i><b>5.3.5</b> Identifying special housing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="mortality.html"><a href="mortality.html"><i class="fa fa-check"></i><b>6</b> Mortality</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="mortality.html"><a href="mortality.html#seasonal-mortality-rates"><i class="fa fa-check"></i><b>6.1</b> Seasonal mortality rates</a></li>
+<li class="chapter" data-level="6.2" data-path="mortality.html"><a href="mortality.html#age-distribution-at-death"><i class="fa fa-check"></i><b>6.2</b> Age distribution at death</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="falls.html"><a href="falls.html"><i class="fa fa-check"></i><b>7</b> Falls</a></li>
+<li class="chapter" data-level="8" data-path="covid-19.html"><a href="covid-19.html"><i class="fa fa-check"></i><b>8</b> COVID-19</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="covid-19.html"><a href="covid-19.html#slutvård-data"><i class="fa fa-check"></i><b>8.1</b> Slutvård data</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="covid-19.html"><a href="covid-19.html#data-considerations"><i class="fa fa-check"></i><b>8.1.1</b> Data considerations</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Reloc-Age</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Reloc-Age</h1>
+</div>
+<div id="about" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This document outlines the aims, motivations, and research questions of the RELOC-AGE project.
+Descriptions on data retrieval, data processing, as well as some exploratory analysis and initial findings are also reported.</p>
+<p>Using the sidebar found on the left, one may easily navigate the document to browse the contents.</p>
+<p>Tables and figures are based on summarized, anonymous data. No data is available on this site.
+# Introduction</p>
+<p>RELOC-AGE: How Do Housing Choices and Relocation Matter for Active and Healthy Ageing?</p>
+<p>To generate novel and significant knowledge on housing choices and relocation as related to active and healthy ageing,
+the objectives of this multistage mixed methods participatory project are to:</p>
+<ul>
+<li>Study housing choices, relocation and health patterns in the Swedish population aged 55+ (Register
+RELOC-AGE).</li>
+<li>Study housing choices and relocation and examine the effects on active and healthy ageing among people
+aged 55+ considering relocation (Prospective RELOC-AGE).</li>
+<li>Complete the development of a novel housing counselling intervention and a subsequent pilot study
+(Intervention RELOC-AGE).</li>
+<li>Contribute to theory development (Theory RELOC-AGE).</li>
+</ul>
+<div id="research-questions" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Research questions<a href="index.html#research-questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>What are the trends over time and by age when it comes to housing types and tenures?</li>
+<li>How do housing aspects and relocations affect future health outcomes?</li>
+</ol>
+<ul>
+<li>How are these patterns affected by age, sex, civil status, country of origin, adverse health
+events, loss of a partner, socio-economic and neighborhood characteristics?</li>
+<li>Given equal propensity of relocation based on baseline demographic, socio-economic and
+health characteristics, how do specific housing decisions affect future health outcomes?</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>What are the effects of adverse health events on housing choices and relocation patterns?</li>
+</ol>
+<ul>
+<li>What are the short- and long-term effects?</li>
+<li>How do these effects differ between men and women, across different disease and/or disability profiles, civil status, country of origin and socio-economic status?</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>What aspects of housing and health predict:</li>
+</ol>
+<ul>
+<li>relocation to different housing options in the ordinary housing stock</li>
+<li>relocation to residential care facilities</li>
+<li>remaining in the present dwelling?</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>How is the complex interaction between objective and perceived aspects of housing and social aspects associated with active and healthy ageing, and what are the characteristics and trajectories of such dynamics?</li>
+<li>What housing attributes do older adults considering relocation find important, and to what extent, when making their decisions on housing preferences?</li>
+<li>How do older adults considering relocation reason regarding:</li>
+</ol>
+<ul>
+<li>different housing options and</li>
+<li>motives for considering and effectuating relocation, and</li>
+<li>to what extent are their motives fulfilled?</li>
+</ul>
+<ol start="8" style="list-style-type: decimal">
+<li>Is the newly developed housing counselling intervention usable, feasible and acceptable for the Swedish municipality context, and what are the pros and cons of different delivery formats?</li>
+<li>Which outcomes should be used to investigate the effectiveness of housing counselling, and what are</li>
+</ol>
+<ul>
+<li>the responsiveness and,</li>
+<li>the intervention effects on the selected primary and secondary outcomes, as indicated by the results of the pilot study?</li>
+</ul>
+<ol start="10" style="list-style-type: decimal">
+<li>What are the main concepts and pathways of a theory on housing choices, relocation and active ageing?</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="overview-of-registers-and-data.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": {},
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
