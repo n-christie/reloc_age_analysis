@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 COVID-19 | Reloc-Age</title>
+  <meta name="description" content="Description and intial analysis for the Reloc-Age project" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 COVID-19 | Reloc-Age" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Description and intial analysis for the Reloc-Age project" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 COVID-19 | Reloc-Age" />
+  
+  <meta name="twitter:description" content="Description and intial analysis for the Reloc-Age project" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="falls.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Reloc-Age</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#research-questions"><i class="fa fa-check"></i><b>1.1</b> Research questions</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="overview-of-registers-and-data.html"><a href="overview-of-registers-and-data.html"><i class="fa fa-check"></i><b>2</b> Overview of Registers and Data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="overview-of-registers-and-data.html"><a href="overview-of-registers-and-data.html#description-of-data-sets-from-scb"><i class="fa fa-check"></i><b>2.1</b> Description of data sets from SCB</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="overview-of-registers-and-data.html"><a href="overview-of-registers-and-data.html#dataset-overview"><i class="fa fa-check"></i><b>2.1.1</b> Dataset overview</a></li>
+<li class="chapter" data-level="2.1.2" data-path="overview-of-registers-and-data.html"><a href="overview-of-registers-and-data.html#data-cleaning-and-joining-of-raw-data"><i class="fa fa-check"></i><b>2.1.2</b> Data cleaning and joining of raw data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="exploring-data---individuals.html"><a href="exploring-data---individuals.html"><i class="fa fa-check"></i><b>3</b> Exploring data - Individuals</a></li>
+<li class="chapter" data-level="4" data-path="icd-codes..html"><a href="icd-codes..html"><i class="fa fa-check"></i><b>4</b> ICD codes.</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="icd-codes..html"><a href="icd-codes..html#icd-code-types"><i class="fa fa-check"></i><b>4.1</b> ICD Code types</a></li>
+<li class="chapter" data-level="4.2" data-path="icd-codes..html"><a href="icd-codes..html#decoding-the-codes---matching"><i class="fa fa-check"></i><b>4.2</b> Decoding the codes - matching</a></li>
+<li class="chapter" data-level="4.3" data-path="icd-codes..html"><a href="icd-codes..html#data-cleaning-process"><i class="fa fa-check"></i><b>4.3</b> Data cleaning process</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="icd-codes..html"><a href="icd-codes..html#identifying-the-number-of-hospital-visits"><i class="fa fa-check"></i><b>4.3.1</b> Identifying the number of hospital visits</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="icd-codes..html"><a href="icd-codes..html#flu-risk-categories"><i class="fa fa-check"></i><b>4.4</b> Flu risk categories</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="relocations.html"><a href="relocations.html"><i class="fa fa-check"></i><b>5</b> Relocations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="relocations.html"><a href="relocations.html#identifying-relocations"><i class="fa fa-check"></i><b>5.1</b> Identifying relocations</a></li>
+<li class="chapter" data-level="5.2" data-path="relocations.html"><a href="relocations.html#descriptive-statistics"><i class="fa fa-check"></i><b>5.2</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="5.3" data-path="relocations.html"><a href="relocations.html#specific-data-considerations"><i class="fa fa-check"></i><b>5.3</b> Specific data considerations</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="relocations.html"><a href="relocations.html#translating-types-of-housing-and-tenure"><i class="fa fa-check"></i><b>5.3.1</b> Translating types of housing and tenure</a></li>
+<li class="chapter" data-level="5.3.2" data-path="relocations.html"><a href="relocations.html#identifying-partners"><i class="fa fa-check"></i><b>5.3.2</b> Identifying partners</a></li>
+<li class="chapter" data-level="5.3.3" data-path="relocations.html"><a href="relocations.html#identifying-change-in-kommun"><i class="fa fa-check"></i><b>5.3.3</b> Identifying change in kommun</a></li>
+<li class="chapter" data-level="5.3.4" data-path="relocations.html"><a href="relocations.html#identifying-houshold-size"><i class="fa fa-check"></i><b>5.3.4</b> Identifying houshold size</a></li>
+<li class="chapter" data-level="5.3.5" data-path="relocations.html"><a href="relocations.html#identifying-special-housing"><i class="fa fa-check"></i><b>5.3.5</b> Identifying special housing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="mortality.html"><a href="mortality.html"><i class="fa fa-check"></i><b>6</b> Mortality</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="mortality.html"><a href="mortality.html#seasonal-mortality-rates"><i class="fa fa-check"></i><b>6.1</b> Seasonal mortality rates</a></li>
+<li class="chapter" data-level="6.2" data-path="mortality.html"><a href="mortality.html#age-distribution-at-death"><i class="fa fa-check"></i><b>6.2</b> Age distribution at death</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="falls.html"><a href="falls.html"><i class="fa fa-check"></i><b>7</b> Falls</a></li>
+<li class="chapter" data-level="8" data-path="covid-19.html"><a href="covid-19.html"><i class="fa fa-check"></i><b>8</b> COVID-19</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="covid-19.html"><a href="covid-19.html#slutvård-data"><i class="fa fa-check"></i><b>8.1</b> Slutvård data</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="covid-19.html"><a href="covid-19.html#data-considerations"><i class="fa fa-check"></i><b>8.1.1</b> Data considerations</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Reloc-Age</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="covid-19" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> COVID-19<a href="covid-19.html#covid-19" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="slutvård-data" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Slutvård data<a href="covid-19.html#slutvård-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Slutvård data from Socialstyrelsen contains, among other data items, the primary ICD diagnosis for patients who have stayed at least one night in a hospital.
+As 2020 is covered in our sample, we can look at some patterns with COVID-19 diagnoses - the when, who, and where of hospitalizations in Sweden due to COVID-19. Using a list of ICD diagnosis codes, we can identify which patients were diagnosed with COVID-19 using the following criteria:</p>
+<p>ICD 10 code is equal to one of the following: U071, U072, U089, U099, U109, U119, U129, ZV100</p>
+<p>Next, we can look at the following few graphs to give an idea of the data, as well as illustrate some patterns.</p>
+<p>A first question may be: How many days did patients spend in the hospital in 2020 due to COVID?</p>
+<p><img src="output/figures/covid_days_slut.png" width="100%" /></p>
+<p>Above we see a histogram of the number of days patients were hospitalized with a primary diagnosis of COVID-19.
+The distribution is heavily left-skewed, with the average number of days a patient spent in the hospital being 10.02 days.</p>
+<p>Below, we can look at the proportion of hospital stays due to COVID-19 by month in 2020.
+Two distinct peaks are observed in the data.</p>
+<p><img src="output/figures/covid_months_slut.png" width="100%" /></p>
+<p>While a monthly proportion may be interesting per se,
+simply looking at the number of cases by data may give a better view.
+Below looks at the unique hospital stays during 2020,
+filled in with the proportion of each ICD code.
+The ICD code “U071” is by far the most common code in the data.</p>
+<p><img src="output/figures/covid_seasonal.png" width="100%" /></p>
+<div id="data-considerations" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Data considerations<a href="covid-19.html#data-considerations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Looking at the ICD codes in the Slutvård data,
+we see that individuals may have multiple entries each year for hospital stays.
+Upon further examination,
+the vast majority of these “double entries” are back-to-back checkins.
+In other words,
+an individual seems to be released from the hospital and then checks back in the very same day,
+creating two (or more if repeated) entries.
+While these revolving door hospital stays could possibly be just that,
+the prevalence of these entries suggest a different mechanism at play - most likely a patient has changed wards or departments.
+For example,
+a patient may be admitted to emergency services for initial COVID-19 symptoms, but then transferred to an Intensive Care Ward, or a recovery ward, which would create three admissions.</p>
+<p>Below tallies the number hospital entries patients had for COVID-19.</p>
+<p><img src="output/figures/covid_visits_per.png" width="100%" /></p>
+<p>In the majority of cases,
+patients show having only one hospital entry during the year.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="falls.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": {},
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
