@@ -103,3 +103,18 @@ Often is the case where a patient will check out on a particular date, and check
 While a cursory glance might lead one to conclude this phenomenon is the result of consecutive accidents or hospitalizations, the sheer number of occurrences of these back to back visits leads us to another conclusion - that when patients move from one ward to another, from the emergency room to the recovery ward for example, each record is recorded as a separate occurrence in the data set. 
 
 Therefore these back-to-back observations are combined and counted as one visit under the assumption they represent the transfer of the patient from one ward or clinic to another.  Calculations and conclusions are treated as such.  To illustrate, in the above example, the we can see that the last two hopitalizations are back to back: the individual checks out on 09-30, then checks back in on the same date.  When calculating the number of days hospitalized for this particular visit the individual experienced, we would sum the two values of days hospitalized ( 4 days and 16 days) to arrive at a combined total (of 20 days).
+
+
+## Flu risk categories
+
+Research has identified particular medical conditions which significantly affect the chances of contracting influenza.  The following table represents the construction of flu risk categories based on ICD codes available in the data.
+
+
+```{r,out.width="100%"}
+
+knitr::include_graphics(here("output/figures", "flu_risk_cats.png"))
+```
+
+
+
+
